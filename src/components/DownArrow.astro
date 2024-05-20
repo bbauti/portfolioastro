@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<script>
+<!-- <script>
   function debounce(func: (...args: any[]) => void, wait: number): () => void {
     let timeout: ReturnType<typeof setTimeout> | undefined;
     return function (this: void, ...args: any[]) {
@@ -11,36 +11,31 @@ import { Icon } from "astro-icon/components";
     };
   }
 
-  window.addEventListener("DOMContentLoaded", () => {
-    const arrow = document.querySelector<HTMLElement>(".down-arrow");
-    if (!arrow) return;
+  const arrow = document.querySelector<HTMLElement>(".down-arrow");
 
-    const handleScroll = debounce(() => {
-      if (window.scrollY > 100) {
-        console.log("hide");
-        arrow.style.opacity = "0";
-      } else {
-        console.log("show");
-        arrow.style.opacity = "1";
-      }
-    }, 100);
+  const handleScroll = debounce(() => {
+    if (window.scrollY > 10) {
+      console.log("hide");
+      arrow.style.opacity = "0";
+      arrow.style.filter = "blur(3px)";
+    } else {
+      console.log("show");
+      arrow.style.opacity = "1";
+      arrow.style.filter = "blur(0px)";
+    }
+  }, 100);
 
-    window.addEventListener("scroll", handleScroll);
-  });
-</script>
-
+  if (arrow) window.addEventListener("scroll", handleScroll);
+</script> -->
 <div class="down-arrow">
   <Icon name="mdi:arrow-down-box" />
 </div>
 
 <style>
   .down-arrow {
-    position: absolute;
-    bottom: 4rem;
+    width: fit-content;
+    margin: 3rem auto;
     font-size: 2rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
     animation: bounce 2s infinite;
     transition: all 0.2s ease;
   }
