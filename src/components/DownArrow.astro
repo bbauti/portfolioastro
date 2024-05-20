@@ -3,29 +3,27 @@ import { Icon } from "astro-icon/components";
 ---
 
 <script>
-  function debounce(func, wait) {
-    let timeout;
-    return function () {
-      const context = this,
-        args = arguments;
-      clearTimeout(timeout);
-      timeout = setTimeout(() => func.apply(context, args), wait);
+  function debounce(func: (...args: any[]) => void, wait: number): () => void {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+    return function (this: void, ...args: any[]) {
+      if (timeout) clearTimeout(timeout);
+      timeout = setTimeout(() => func(...args), wait);
     };
   }
 
   window.addEventListener("DOMContentLoaded", () => {
-    const arrow = document.querySelector(".down-arrow");
+    const arrow = document.querySelector<HTMLElement>(".down-arrow");
     if (!arrow) return;
 
     const handleScroll = debounce(() => {
       if (window.scrollY > 100) {
         console.log("hide");
-        arrow.style.opacity = 0;
+        arrow.style.opacity = "0";
       } else {
         console.log("show");
-        arrow.style.opacity = 1;
+        arrow.style.opacity = "1";
       }
-    }, 100); // 100ms debounce interval
+    }, 100);
 
     window.addEventListener("scroll", handleScroll);
   });
