@@ -1,0 +1,155 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="w-fit mx-auto mt-10">
+  <h2 class="w-fit mx-auto mb-4 font-semibold text-lg md:text-xl relative">
+    <span class="absolute top-[-1px] right-[-10px] star">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="svg-icon"
+        style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        ><path
+          d="M602.24 246.72a17.28 17.28 0 0 0-11.84-16.32l-42.88-14.4A90.56 90.56 0 0 1 490.24 160l-14.4-42.88a17.28 17.28 0 0 0-32 0L428.8 160a90.56 90.56 0 0 1-57.28 57.28l-42.88 14.4a17.28 17.28 0 0 0 0 32l42.88 14.4a90.56 90.56 0 0 1 57.28 57.28l14.4 42.88a17.28 17.28 0 0 0 32 0l14.4-42.88a90.56 90.56 0 0 1 57.28-57.28l42.88-14.4a17.28 17.28 0 0 0 12.48-16.96z m301.12 221.76l-48.32-16a101.44 101.44 0 0 1-64-64l-16-48.32a19.2 19.2 0 0 0-36.8 0l-16 48.32a101.44 101.44 0 0 1-64 64l-48.32 16a19.2 19.2 0 0 0 0 36.8l48.32 16a101.44 101.44 0 0 1 64 64l16 48.32a19.2 19.2 0 0 0 36.8 0l16-48.32a101.44 101.44 0 0 1 64-64l48.32-16a19.2 19.2 0 0 0 0-36.8z m-376.64 195.52l-64-20.8a131.84 131.84 0 0 1-83.52-83.52l-20.8-64a25.28 25.28 0 0 0-47.68 0l-20.8 64a131.84 131.84 0 0 1-82.24 83.52l-64 20.8a25.28 25.28 0 0 0 0 47.68l64 20.8a131.84 131.84 0 0 1 83.52 83.84l20.8 64a25.28 25.28 0 0 0 47.68 0l20.8-64a131.84 131.84 0 0 1 83.52-83.52l64-20.8a25.28 25.28 0 0 0 0-47.68z"
+          fill="#01fff3"></path></svg
+      >
+    </span>
+    Mi tech stack
+  </h2>
+  <div class="flex gap-4 items-center flex-wrap">
+    <!-- <Icon name="devicon:javascript"></Icon> -->
+    <div class="iconsection" data-tooltip="Javascript">
+      <Icon name="mdi:nodejs" />
+      <Icon name="devicon:typescript" />
+      <Icon name="devicon:vuejs" />
+      <Icon name="devicon:nuxtjs" />
+      <Icon name="devicon:vitejs" />
+      <!-- <Icon icon='devicon:vuejs'></Icon>
+            <Icon icon='devicon:nuxt-icon'></Icon> -->
+    </div>
+
+    <div class="icon" data-tooltip="HTML">
+      <Icon name="devicon:html5" />
+    </div>
+
+    <!--
+    <div class="iconsection" data-tooltip="CSS">
+      <Icon name="devicon:file-type-scss" />
+      <Icon name="devicon:bulma" />
+    </div>
+    -->
+
+    <div class="iconsection" data-tooltip="PHP">
+      <Icon name="devicon:php" />
+      <Icon name="devicon:laravel" />
+    </div>
+
+    <div class="iconsection" data-tooltip="SQL">
+      <Icon name="devicon:microsoftsqlserver" />
+      <Icon name="devicon:postgresql" />
+    </div>
+
+    <div class="icon" data-tooltip="Docker">
+      <Icon name="devicon:docker" />
+    </div>
+    <div class="icon" data-tooltip="Bash">
+      <Icon name="devicon:bash" />
+    </div>
+    <div class="icon" data-tooltip="Git">
+      <Icon name="devicon:git" />
+    </div>
+    <div class="icon" data-tooltip="Atlassian">
+      <Icon name="mdi:atlassian" />
+    </div>
+  </div>
+</section>
+
+<style>
+  .star {
+    rotate: 80deg;
+    filter: drop-shadow(0px 0px 5px #01fff3);
+  }
+
+  [data-icon="mdi:nodejs"] {
+    color: #539e43;
+  }
+
+  .iconsection {
+    display: flex;
+    border-left: 1px solid #0000001f;
+    border-right: 1px solid #0000001f;
+    padding: 0.5rem;
+    border-radius: 10px;
+    gap: 0.5rem;
+  }
+
+  [data-icon] {
+    font-size: 2rem;
+    transition: all 0.2s ease;
+    filter: grayscale(0.9) brightness(0.5);
+    position: relative;
+  }
+
+  [data-icon]:hover {
+    transform: scale(1.2);
+    filter: grayscale(0) brightness(1);
+    margin: 0 0.2rem;
+  }
+
+  /* Tooltips */
+
+  [data-tooltip]:hover:after {
+    opacity: 1;
+    transition: all 0.1s ease 0.1s;
+    visibility: visible;
+  }
+
+  [data-tooltip]:hover {
+    border-color: #0000001f;
+    transition: all 0.1s ease 0.1s;
+  }
+
+  [data-tooltip]:after {
+    content: attr(data-tooltip);
+    transition: all 0.1s ease 0.1s;
+    top: -25px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    padding: 0 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    background-color: #0f0f0f2a;
+    backdrop-filter: blur(10px);
+    border: 1px solid #0000001f;
+    border-radius: 5px;
+    opacity: 0;
+    z-index: 99999;
+    visibility: hidden;
+  }
+
+  [data-tooltip] {
+    position: relative;
+    transition: all 0.1s ease 0.1s;
+  }
+
+  @media (max-width: 768px) {
+    [data-tooltip]:after {
+      font-size: 0.6rem;
+    }
+
+    [data-icon] {
+      font-size: 1.5rem;
+    }
+
+    [data-icon]:hover {
+      margin: 0;
+    }
+
+    .iconsection {
+      flex-wrap: wrap;
+    }
+  }
+</style>

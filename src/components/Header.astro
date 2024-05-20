@@ -1,0 +1,118 @@
+---
+
+---
+
+<header
+  class="pt-[50px] md:pt-[80px] flex flex-col gap-4 items-center justify-center"
+>
+  <h1 class="md:text-4xl text-2xl transition-all ease">¡Hola! Soy</h1>
+  <h2 class="font-bold md:text-6xl text-4xl">Bautista Igarzabal</h2>
+  <h3 class="md:text-3xl text-xl">
+    Un <span class="highlight">desarrollador web</span>, especializado en el
+    <span class="frontend">
+      frontend
+      <span class="stars">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="svg-icon"
+          style="width: 1em; height: 1em;vertical-align: middle;fill: currentColor;overflow: hidden;"
+          viewBox="0 0 1024 1024"
+          version="1.1"
+          ><path
+            d="M602.24 246.72a17.28 17.28 0 0 0-11.84-16.32l-42.88-14.4A90.56 90.56 0 0 1 490.24 160l-14.4-42.88a17.28 17.28 0 0 0-32 0L428.8 160a90.56 90.56 0 0 1-57.28 57.28l-42.88 14.4a17.28 17.28 0 0 0 0 32l42.88 14.4a90.56 90.56 0 0 1 57.28 57.28l14.4 42.88a17.28 17.28 0 0 0 32 0l14.4-42.88a90.56 90.56 0 0 1 57.28-57.28l42.88-14.4a17.28 17.28 0 0 0 12.48-16.96z m301.12 221.76l-48.32-16a101.44 101.44 0 0 1-64-64l-16-48.32a19.2 19.2 0 0 0-36.8 0l-16 48.32a101.44 101.44 0 0 1-64 64l-48.32 16a19.2 19.2 0 0 0 0 36.8l48.32 16a101.44 101.44 0 0 1 64 64l16 48.32a19.2 19.2 0 0 0 36.8 0l16-48.32a101.44 101.44 0 0 1 64-64l48.32-16a19.2 19.2 0 0 0 0-36.8z m-376.64 195.52l-64-20.8a131.84 131.84 0 0 1-83.52-83.52l-20.8-64a25.28 25.28 0 0 0-47.68 0l-20.8 64a131.84 131.84 0 0 1-82.24 83.52l-64 20.8a25.28 25.28 0 0 0 0 47.68l64 20.8a131.84 131.84 0 0 1 83.52 83.84l20.8 64a25.28 25.28 0 0 0 47.68 0l20.8-64a131.84 131.84 0 0 1 83.52-83.52l64-20.8a25.28 25.28 0 0 0 0-47.68z"
+            fill="red"></path></svg
+        >
+      </span>
+    </span>
+    <span class="ml-[-5px]">.</span>
+  </h3>
+</header>
+
+<style>
+  header {
+    user-select: none;
+    background-color: #fff;
+    font-size: 56px;
+    letter-spacing: -0.109rem;
+    background-clip: text;
+    text-align: center;
+    font-weight: 700;
+    line-height: 133%;
+    transition:
+      font-size 0.3s ease,
+      letter-spacing 0.3s ease,
+      line-height 0.3s ease;
+
+    h2 {
+      color: transparent;
+      -webkit-text-stroke: 2px #222630;
+      transform: skew(-2deg);
+      transition: all 0.3s ease;
+    }
+
+    h2:hover {
+      color: #222630;
+      transform: skew(-2deg) scale(1.1) translateY(-10px);
+      letter-spacing: normal;
+      text-shadow: 0 0 20px hsla(0, 0%, 18%, 0.353);
+    }
+
+    .highlight {
+      text-wrap: nowrap;
+      position: relative;
+      margin: -2px -6px;
+      padding: 2px 6px;
+    }
+
+    .highlight::before {
+      background: url(/brush.svg);
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 100%;
+      z-index: -1;
+      bottom: 0;
+      transform: skewY(-2deg);
+    }
+
+    .frontend {
+      position: relative;
+      margin: -2px -6px;
+      padding: 2px 6px;
+      font-style: italic;
+      background: linear-gradient(90deg, #ec0ebc, #8415ec);
+      background-clip: text;
+      color: transparent;
+    }
+
+    .stars {
+      /* TODO */
+      display: none;
+      position: absolute;
+      top: -5px;
+      right: -20px;
+    }
+  }
+
+  header:before {
+    position: absolute;
+    content: "";
+    z-index: -1;
+    top: 0%;
+    bottom: 0%;
+    width: 100%;
+    height: 50vh;
+    opacity: 0.4;
+    -webkit-mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
+    mask-image: radial-gradient(rgba(0, 0, 0, 0.5), transparent 70%);
+    background: linear-gradient(90deg, rgba(0, 0, 255, 0), rgb(101, 0, 255)),
+      linear-gradient(90deg, rgb(255, 0, 106), rgba(0, 255, 0, 0)),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='10' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  @media (max-width: 768px) {
+    header > h2 {
+      -webkit-text-stroke: 1px #222630;
+    }
+  }
+</style>

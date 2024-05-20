@@ -1,0 +1,67 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<script>
+  function debounce(func, wait) {
+    let timeout;
+    return function () {
+      const context = this,
+        args = arguments;
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const arrow = document.querySelector(".down-arrow");
+    if (!arrow) return;
+
+    const handleScroll = debounce(() => {
+      if (window.scrollY > 100) {
+        console.log("hide");
+        arrow.style.opacity = 0;
+      } else {
+        console.log("show");
+        arrow.style.opacity = 1;
+      }
+    }, 100); // 100ms debounce interval
+
+    window.addEventListener("scroll", handleScroll);
+  });
+</script>
+
+<div class="down-arrow">
+  <Icon name="mdi:arrow-down-box" />
+</div>
+
+<style>
+  .down-arrow {
+    position: absolute;
+    bottom: 4rem;
+    font-size: 2rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    animation: bounce 2s infinite;
+    transition: all 0.2s ease;
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+
+    40% {
+      transform: translateY(10px);
+    }
+
+    60% {
+      transform: translateY(5px);
+    }
+  }
+</style>
