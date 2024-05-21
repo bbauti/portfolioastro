@@ -63,8 +63,8 @@ let proyects = [
   },
 ];
 
-const checkColor = (leng: string) => {
-  const color = colores[leng];
+const checkColor = (leng: any) => {
+  const color = colores[leng] as any;
   if (color) {
     return color;
   } else {
@@ -72,19 +72,6 @@ const checkColor = (leng: string) => {
   }
 };
 ---
-
-<script>
-  document.getElementById("cards").onmousemove = (e) => {
-    for (const card of document.getElementsByClassName("card")) {
-      const rect = card.getBoundingClientRect(),
-        x = e.clientX - rect.left,
-        y = e.clientY - rect.top;
-
-      card.style.setProperty("--mouse-x", `${x}px`);
-      card.style.setProperty("--mouse-y", `${y}px`);
-    }
-  };
-</script>
 
 <section>
   <h2 class="w-fit mx-auto mb-4 font-semibold text-lg md:text-xl relative">
