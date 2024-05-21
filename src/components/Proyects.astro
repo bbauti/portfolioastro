@@ -2,6 +2,10 @@
 import { Icon } from "astro-icon/components";
 import * as colores from "../../public/colors.json";
 
+type Colores = { [key: string]: string };
+
+const typedColores = colores as Colores;
+
 let proyects = [
   {
     name: ["Dashboard"],
@@ -63,13 +67,9 @@ let proyects = [
   },
 ];
 
-const checkColor = (leng: any) => {
-  const color = colores[leng] as any;
-  if (color) {
-    return color;
-  } else {
-    return "#fff";
-  }
+const checkColor = (leng: keyof Colores): string => {
+  const color = typedColores[leng];
+  return color ? color : "#fff";
 };
 ---
 
