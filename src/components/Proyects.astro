@@ -9,7 +9,7 @@ const typedColores = colores as Colores;
 let proyects = [
   {
     name: ["Dashboard"],
-    desc: "dashboarddesc",
+    desc: "Aplicación de gestión de inventario para la diplomatura de programación de la UTN. La aplicación permite gestionar stock, crear productos, manejar un carrito de compras con cálculos de precios, impuestos y envíos, analizar transacciones, gestionar impuestos, y administrar múltiples cuentas. Cuenta con notificaciones de bajo stock y es de código abierto.",
     source: "https://github.com/bbauti/dashboard",
     img: "dashboard",
     link: "dashboard",
@@ -19,7 +19,7 @@ let proyects = [
   },
   {
     name: ["Inventory App", "1rem"],
-    desc: "Aplicación web dedicada al control del inventario de una institución escolar. Se empleó la metodología SCRUM, y se me ha asignado el rol de desarrollador y DevOps.",
+    desc: "Aplicación web para el control del inventario de una institución escolar como parte de un equipo que usó la metodología SCRUM. Fui responsable del frontend, la documentación y las tareas de DevOps. La aplicación, implementada en un servidor propio con CI/CD para actualizaciones automáticas, permitía a los maestros controlar el inventario escolar y localizar objetos en diferentes salones. Todo se creó desde cero, incluyendo correos y autenticación. Utilizamos Python, Flask, Jinja, CSS, HTML y JS. Este fue mi primer proyecto real.",
     source: "https://bitbucket.org/arrudeboy/inventory/src",
     img: "inventoryapp",
     link: "",
@@ -85,11 +85,11 @@ const checkColor = (leng: keyof Colores): string => {
       proyects.map((proyect, index) => (
         <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px]'>
           <section class="flex gap-4 flex-col md:flex-row">
-            <div class="p-[1rem] max-w-[40ch] w-full flex flex-col">
+            <div class="p-[1rem] md:max-w-[34ch] w-full flex flex-col gap-2">
               <header class="text-xl font-[600] flex items-center gap-2 select-none">
                 <p class="ptitle">{proyect.name[0]}</p>
                 <div class="flex items-center gap-2">
-                  <div class="icon-card">
+                  <div class="icon-card bg-[#AFAFAF]/10 hover:bg-[#AFAFAF]/40 hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
                     <a
                       href={proyect.source}
                       class="git"
@@ -100,25 +100,22 @@ const checkColor = (leng: keyof Colores): string => {
                     </a>
                   </div>
                   {proyect.status === "done" ? (
-                    <div class="icon-card">
-                      <a href={proyect.link} aria-label="link" class="done">
+                    <div class="icon-card bg-[#AFAFAF]/10 hover:bg-[#AFAFAF]/40 hover:color-[#AFAFAF] hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
+                      <a href={proyect.link} aria-label="link" class="done" target="_blank">
                         <Icon name="mdi:external-link" />
                       </a>
                     </div>
                   ) : proyect.status === "wip" ? (
-                    <div class="icon-card disabled">
+                    <div class="icon-card disabled bg-[#AFAFAF]/10 p-1 rounded-md">
                       <Icon name="mdi:construction" />
                     </div>
                   ) : null}
                 </div>
               </header>
-              <div class="select-none">
-                <p>{proyect.desc}</p>
-              </div>
-              <div class="flex flex-wrap gap-1 select-none mt-auto">
+              <div class="flex flex-wrap gap-1 select-none">
                 {proyect.lenguages.map((leng, index) => (
                   <div
-                    class="border border-accent/20 rounded-lg flex items-center justify-center px-2 shadow-sm"
+                    class="border text-sm border-accent/20 rounded-lg flex items-center justify-center px-2 shadow-sm"
                     style={{ backgroundColor: checkColor(proyect.lenguagesColor[index])+'50' }}
                   >
                     <span
@@ -133,8 +130,11 @@ const checkColor = (leng: keyof Colores): string => {
                   </div>
                 ))}
               </div>
+              <div class="select-none">
+                <p class="leading-[1.325] tracking-wide	">{proyect.desc}</p>
+              </div>
             </div>
-            <figure class="w-fit">
+            <figure class="w-fit h-fit my-auto">
               <img
                 src={`/proyects/${proyect.img}.png`}
                 alt={proyect.name[0]}
