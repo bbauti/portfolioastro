@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Stack from "../components/Stack.astro";
 import Proyects from "../components/Proyects.astro";
 import DownArrow from "../components/DownArrow.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <html lang="en">
@@ -45,13 +46,16 @@ import DownArrow from "../components/DownArrow.astro";
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
-    <div id="noise"></div>
-    <section class="relative min-h-screen">
-      <Header />
-      <Stack />
-      <DownArrow />
-    </section>
-    <Proyects />
+    <main class="shadow-xl">
+      <div id="noise"></div>
+      <section class="relative min-h-screen">
+        <Header />
+        <Stack />
+        <DownArrow />
+      </section>
+      <Proyects />
+    </main>
+    <Footer />
     <style>
       @font-face {
         font-family: "Inter";
@@ -79,7 +83,9 @@ import DownArrow from "../components/DownArrow.astro";
         scroll-behavior: smooth;
       }
 
-      body {
+      main {
+        position: relative;
+        z-index: 1;
         color: #222630;
         background-color: #fff;
         min-height: 100%;
@@ -136,7 +142,7 @@ import DownArrow from "../components/DownArrow.astro";
       }
 
       @media (max-width: 768px) {
-        body {
+        main {
           padding: 1rem;
         }
       }
