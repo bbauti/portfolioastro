@@ -2,32 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<!-- <script>
-  function debounce(func: (...args: any[]) => void, wait: number): () => void {
-    let timeout: ReturnType<typeof setTimeout> | undefined;
-    return function (this: void, ...args: any[]) {
-      if (timeout) clearTimeout(timeout);
-      timeout = setTimeout(() => func(...args), wait);
-    };
-  }
-
-  const arrow = document.querySelector<HTMLElement>(".down-arrow");
-
-  const handleScroll = debounce(() => {
-    if (window.scrollY > 10) {
-      console.log("hide");
-      arrow.style.opacity = "0";
-      arrow.style.filter = "blur(3px)";
-    } else {
-      console.log("show");
-      arrow.style.opacity = "1";
-      arrow.style.filter = "blur(0px)";
-    }
-  }, 100);
-
-  if (arrow) window.addEventListener("scroll", handleScroll);
-</script> -->
-<div class="down-arrow">
+<div class="down-arrow pointer">
   <Icon name="mdi:arrow-down-box" />
 </div>
 

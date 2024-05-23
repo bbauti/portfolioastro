@@ -19,7 +19,7 @@ let proyects = [
   },
   {
     name: ["Inventory App", "1rem"],
-    desc: "inventorydesc",
+    desc: "Aplicación web dedicada al control del inventario de una institución escolar. Se empleó la metodología SCRUM, y se me ha asignado el rol de desarrollador y DevOps.",
     source: "https://bitbucket.org/arrudeboy/inventory/src",
     img: "inventoryapp",
     link: "",
@@ -37,7 +37,7 @@ let proyects = [
   },
   {
     name: ["Todo App"],
-    desc: "tododesc",
+    desc: "Pagina web para gestionar tareas con el uso de localStorage.",
     source: "https://github.com/bbauti/p5todoapp",
     img: "todoapp",
     link: "https://bbauti.github.io/p5todoapp",
@@ -47,7 +47,7 @@ let proyects = [
   },
   {
     name: ["Weather Channel"],
-    desc: "weatherdesc",
+    desc: "Pagina web para obtener informacion sobre el clima.",
     source: "https://github.com/bbauti/p5weatherChannel",
     img: "weatherchannel",
     link: "https://bbauti.github.io/p5weatherChannel",
@@ -57,7 +57,7 @@ let proyects = [
   },
   {
     name: ["Color Game"],
-    desc: "colordesc",
+    desc: "Juego sobre adivinar un color en formato rgb, con cuadrados de colores aleatorios.",
     source: "https://github.com/bbauti/p5colorgame",
     img: "colorgame",
     link: "https://bbauti.github.io/p5colorgame",
@@ -77,63 +77,71 @@ const checkColor = (leng: keyof Colores): string => {
   <h2 class="w-fit mx-auto mb-4 font-semibold text-lg md:text-xl relative">
     Proyectos destacados
   </h2>
-  <div id="cards">
+  <div
+    id="cards"
+    class="flex flex-col gap-4 items-center"
+  >
     {
-      proyects.map((proyect) => (
-        <article class="flex gap-4">
-          <div class="p-[1rem]">
-            <header class="text-xl font-[600] flex items-center gap-2">
-              <p class="ptitle">{proyect.name[0]}</p>
-              <div class="flex items-center gap-2">
-                <div class="icon-card">
-                  <a
-                    href={proyect.source}
-                    class="git"
-                    aria-label="git"
-                    target="_blank"
-                  >
-                    <Icon name="mdi:git" />
-                  </a>
-                </div>
-                {proyect.status === "done" ? (
+      proyects.map((proyect, index) => (
+        <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px]'>
+          <section class="flex gap-4 flex-col md:flex-row">
+            <div class="p-[1rem] max-w-[40ch] w-full flex flex-col">
+              <header class="text-xl font-[600] flex items-center gap-2 select-none">
+                <p class="ptitle">{proyect.name[0]}</p>
+                <div class="flex items-center gap-2">
                   <div class="icon-card">
-                    <a href={proyect.link} aria-label="link" class="done">
-                      <Icon name="mdi:external-link" />
+                    <a
+                      href={proyect.source}
+                      class="git"
+                      aria-label="git"
+                      target="_blank"
+                    >
+                      <Icon name="mdi:git" />
                     </a>
                   </div>
-                ) : proyect.status === "wip" ? (
-                  <div class="icon-card disabled">
-                    <Icon name="mdi:construction" />
-                  </div>
-                ) : null}
-              </div>
-            </header>
-            <div class="select-none">
-              <p>{proyect.desc}</p>
-            </div>
-            <div class="flex select-none">
-              {proyect.lenguages.map((leng, index) => (
-                <div class="lenguage">
-                  <span
-                    class="lengColor"
-                    style={{
-                      color: checkColor(proyect.lenguagesColor[index]),
-                    }}
-                  >
-                    ●
-                  </span>
-                  <span class="leng">{leng}</span>
+                  {proyect.status === "done" ? (
+                    <div class="icon-card">
+                      <a href={proyect.link} aria-label="link" class="done">
+                        <Icon name="mdi:external-link" />
+                      </a>
+                    </div>
+                  ) : proyect.status === "wip" ? (
+                    <div class="icon-card disabled">
+                      <Icon name="mdi:construction" />
+                    </div>
+                  ) : null}
                 </div>
-              ))}
+              </header>
+              <div class="select-none">
+                <p>{proyect.desc}</p>
+              </div>
+              <div class="flex flex-wrap gap-1 select-none mt-auto">
+                {proyect.lenguages.map((leng, index) => (
+                  <div
+                    class="border border-accent/20 rounded-lg flex items-center justify-center px-2 shadow-sm"
+                    style={{ backgroundColor: checkColor(proyect.lenguagesColor[index])+'50' }}
+                  >
+                    <span
+                      class="lengColor"
+                      style={{
+                        color: checkColor(proyect.lenguagesColor[index]),
+                      }}
+                    >
+                      ●
+                    </span>
+                    <span class="leng">{leng}</span>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
-          <figure>
-            <img
-              src={`/proyects/${proyect.img}.png`}
-              alt={proyect.name[0]}
-              class="h-full z-50 relative rounded-[25px] border border-gray-300 p-[0.1rem]"
-            />
-          </figure>
+            <figure class="w-fit">
+              <img
+                src={`/proyects/${proyect.img}.png`}
+                alt={proyect.name[0]}
+                class="z-50 relative rounded-[25px] border border-gray-300 p-[0.1rem] max-h-full ml-auto"
+              />
+            </figure>
+          </section>
         </article>
       ))
     }
@@ -145,7 +153,9 @@ const checkColor = (leng: keyof Colores): string => {
     width: 100%;
   }
 
-  article {
+  article > section {
+    display: flex;
+    justify-content: space-between;
     max-width: 1000px;
     position: relative;
     border: 1px solid #e2e8f0;
@@ -160,11 +170,12 @@ const checkColor = (leng: keyof Colores): string => {
     width: 100%;
     height: 100%;
     border-radius: 30px;
-    overflow: hidden;
-    margin: 0.5rem auto;
+    margin: 0 auto;
+  }
 
-    figure {
-      height: 100%;
+  @media (min-width: 768px) {
+    article > section {
+      max-height: calc(100vh - 80px);
     }
   }
 </style>
