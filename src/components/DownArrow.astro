@@ -36,4 +36,17 @@ import { Icon } from "astro-icon/components";
       transform: translateY(5px);
     }
   }
+
+  @media (max-width: 768px) {
+    .down-arrow {
+      position: absolute;
+      inset: 0;
+      margin-top: auto;
+      margin-bottom: 8rem;
+      height: fit-content;
+      font-size: 2rem;
+      animation: bounce 2s infinite;
+      transition: all 0.2s ease;
+    }
+  }
 </style>
