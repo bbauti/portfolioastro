@@ -31,46 +31,48 @@
   }
 
   .wrapper {
-    mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%)
-  }
+  mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
+}
 
-  .stripes {
-    transform: translate3d(0, 0, 0);
-    --bg: currentcolor;
-    --duration: 60s;
-    --stripes: repeating-linear-gradient(
-        110deg,
-        var(--bg) 0%,
-        var(--bg) 7%,
-        transparent 10%,
-        transparent 12%,
-        var(--bg) 16%
-      );
-    --rainbow: repeating-linear-gradient(
-        110deg,
-        #60a5fa 10%,
-        #e879f9 15%,
-        #60a5fa 20%,
-        #5eead4 25%,
-        #60a5fa 30%
-      );
-    background-image:var(--stripes), var(--rainbow);background-size:120%, 200%;background-position:50% 50%, 50% 50%
-  }
+.stripes {
+  transform: translate3d(0, 0, 0);
+  --bg: currentcolor;
+  --duration: 60s;
+  --stripes: repeating-linear-gradient(
+    60deg,
+    var(--bg) 0%,
+    var(--bg) 7%,
+    transparent 10%,
+    transparent 12%,
+    var(--bg) 16%
+  );
+  --rainbow: repeating-linear-gradient(
+    60deg,
+    #f5f5f5 10%,
+    #f7e017 25%,
+    #d946ef 50%,
+    #8b5cf6 75%,
+    #f5f5f5 90%
+  );
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 120%, 200%;
+  background-position: 50% 50%, 50% 50%;
+}
 
-  .animate-god-rays {
-    background-image: var(--stripes), var(--rainbow);
-    background-size: 100%, 100%;
-    background-position: 50% 50%;
-    animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate
-  }
+.animate-god-rays {
+  background-image: var(--stripes), var(--rainbow);
+  background-size: 100%, 100%;
+  background-position: 50% 50%;
+  animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate;
+}
 
   @keyframes god-rays {
     0% {
-      transform: translateX(0)
+      transform: translateX(-50%)
     }
     to {
-      transform: translateX(-50%)
+      transform: translateX(0)
     }
   }
 </style>
