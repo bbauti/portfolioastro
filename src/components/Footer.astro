@@ -3,7 +3,18 @@
 ---
 
 <footer class="min-h-[50vh] sticky bottom-0 bg-[#222630] relative">
-  <div class="gradient"></div>
+  <div class="absolute inset-0 -z-[1] overflow-hidden">
+    <div class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2">
+      <div class="absolute inset-0 wrapper">
+        <div class="absolute inset-0 overflow-hidden">
+          <div class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white blur-[15px] invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes">
+            <div class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="gradient" />
   <aside>
     <p>bbauti</p>
   </aside>
@@ -17,5 +28,49 @@
     left: 0;
     right: 0;
     height: 200px;
+  }
+
+  .wrapper {
+    mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%)
+  }
+
+  .stripes {
+    transform: translate3d(0, 0, 0);
+    --bg: currentcolor;
+    --duration: 60s;
+    --stripes: repeating-linear-gradient(
+        110deg,
+        var(--bg) 0%,
+        var(--bg) 7%,
+        transparent 10%,
+        transparent 12%,
+        var(--bg) 16%
+      );
+    --rainbow: repeating-linear-gradient(
+        110deg,
+        #60a5fa 10%,
+        #e879f9 15%,
+        #60a5fa 20%,
+        #5eead4 25%,
+        #60a5fa 30%
+      );
+    background-image:var(--stripes), var(--rainbow);background-size:120%, 200%;background-position:50% 50%, 50% 50%
+  }
+
+  .animate-god-rays {
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 100%, 100%;
+    background-position: 50% 50%;
+    animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate
+  }
+
+  @keyframes god-rays {
+    0% {
+      transform: translateX(0)
+    }
+    to {
+      transform: translateX(-50%)
+    }
   }
 </style>
