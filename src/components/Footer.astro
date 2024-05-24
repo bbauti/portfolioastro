@@ -2,7 +2,7 @@
 
 ---
 
-<footer class="min-h-[50vh] sticky bottom-0 bg-[#222630] relative">
+<footer class="min-h-[50vh] flex items-center sticky bottom-0 bg-[#222630] relative">
   <div class="absolute inset-0 -z-[1] overflow-hidden">
     <div class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2">
       <div class="absolute inset-0 wrapper">
@@ -15,13 +15,30 @@
     </div>
   </div>
   <div class="gradient" />
-  <aside>
-    <p>bbauti</p>
-  </aside>
+  <section class="flex justify-between w-full px-12 py-8">
+    <div class="text-[#f3f3f3] text-2xl tracking-wider italic font-[700]">
+      bbauti
+    </div>
+    <div>
+      flecha
+    </div>
+    <div class="flex flex-col justify-center gap-4">
+      <p class="uppercase text-sm font-bold">Contactame</p>
+      <ul class="flex flex-col gap-2 socials">
+        <li>Linkedin</li>
+        <li>GitHub</li>
+        <li>Twitter</li>
+        <li>Read.cv</li>
+        <li>Linkedin</li>
+      </ul>
+    </div>
+  </section>
+  <div class="gradient-bottom" />
 </footer>
 
 <style>
   .gradient {
+    pointer-events: none;
     background: linear-gradient(180deg, rgba(228, 75, 233, 0.089) 0%, rgba(230, 230, 230, 0) 100%);
     position: absolute;
     top: 0;
@@ -30,42 +47,52 @@
     height: 200px;
   }
 
+  .gradient-bottom {
+    pointer-events: none;
+    background: linear-gradient(0deg, rgba(255, 255, 255, 0.089) 0%, rgba(230, 230, 230, 0) 100%);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+  }
+
   .wrapper {
-  mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
-}
+    mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
+  }
 
-.stripes {
-  transform: translate3d(0, 0, 0);
-  --bg: currentcolor;
-  --duration: 60s;
-  --stripes: repeating-linear-gradient(
-    60deg,
-    var(--bg) 0%,
-    var(--bg) 7%,
-    transparent 10%,
-    transparent 12%,
-    var(--bg) 16%
-  );
-  --rainbow: repeating-linear-gradient(
-    60deg,
-    #f5f5f5 10%,
-    #f7e017 25%,
-    #d946ef 50%,
-    #8b5cf6 75%,
-    #f5f5f5 90%
-  );
-  background-image: var(--stripes), var(--rainbow);
-  background-size: 120%, 200%;
-  background-position: 50% 50%, 50% 50%;
-}
+  .stripes {
+    transform: translate3d(0, 0, 0);
+    --bg: currentcolor;
+    --duration: 60s;
+    --stripes: repeating-linear-gradient(
+      60deg,
+      var(--bg) 0%,
+      var(--bg) 7%,
+      transparent 10%,
+      transparent 12%,
+      var(--bg) 16%
+    );
+    --rainbow: repeating-linear-gradient(
+      60deg,
+      #f5f5f5 10%,
+      #f7e017 25%,
+      #d946ef 50%,
+      #8b5cf6 75%,
+      #f5f5f5 90%
+    );
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 120%, 200%;
+    background-position: 50% 50%, 50% 50%;
+  }
 
-.animate-god-rays {
-  background-image: var(--stripes), var(--rainbow);
-  background-size: 100%, 100%;
-  background-position: 50% 50%;
-  animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate;
-}
+  .animate-god-rays {
+    background-image: var(--stripes), var(--rainbow);
+    background-size: 100%, 100%;
+    background-position: 50% 50%;
+    animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate;
+  }
 
   @keyframes god-rays {
     0% {
