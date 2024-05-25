@@ -89,7 +89,7 @@ const checkColor = (leng: keyof Colores): string => {
     class="flex flex-col gap-4 items-center"
   >
     {
-      proyects.map((proyect, index) => (
+      proyects.map(proyect => (
         <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px] overflow-hidden'>
           <section class="flex gap-4 flex-col md:flex-row">
             <div class="p-[1rem] md:max-w-[34ch] w-full flex flex-col gap-2">
