@@ -1,7 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
-import LottieAnimation from "astro-integration-lottie/Lottie.astro";
-
+import { Image } from 'astro:assets';
+import arrows from '../assets/arrows.gif';
 ---
 
 <footer class="min-h-[50dvh] flex items-center sticky bottom-0 bg-[#222630] relative">
@@ -24,6 +24,7 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
       </span>
       <a
         href="http://github.com/bbauti/portfolioastro"
+        aria-label="Source code"
         class="flex items-center gap-2"
         target="_blank"
       >
@@ -31,18 +32,26 @@ import LottieAnimation from "astro-integration-lottie/Lottie.astro";
         <span class="mb-[.3rem]">source</span>
       </a>
     </div>
-    <a href="#heading" class="w-fit h-fit"> <!-- TODO: Hacer bien -->
-      <img src='assets/arrows.gif' class="arrows">
+    <a
+      href="#heading"
+      class="w-fit h-fit"
+      aria-label="Go to top"
+    >
+      <Image
+        src={arrows}
+        alt="Go to top"
+        class="arrows"
+      >
     </a>
     <div class="flex flex-col justify-center gap-4 text-[#f3f3f3]">
       <p class="uppercase text-sm font-bold">Contactame</p>
       <ul class="flex flex-col gap-2 socials">
-        <li><a href='https://www.linkedin.com/in/bbauti' target="_blank" >Linkedin<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='mailto:bautistaigarzabal11@gmail.com' target="_blank">Email<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='https://x.com/akabbauti' target="_blank">Twitter<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='http://github.com/bbauti' target="_blank">Github<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='https://read.cv/bbauti' target="_blank">CV<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='https://www.behance.net/bbauti' target="_blank">Behance<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='https://www.linkedin.com/in/bbauti' target="_blank" aria-label="Linkedin">Linkedin<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='mailto:bautistaigarzabal11@gmail.com' target="_blank" aria-label="Email">Email<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='https://x.com/akabbauti' target="_blank" aria-label="Twitter">Twitter<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='http://github.com/bbauti' target="_blank" aria-label="Github">Github<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='https://read.cv/bbauti' target="_blank" aria-label="Curriculum">CV<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='https://www.behance.net/bbauti' target="_blank" aria-label="Behance">Behance<Icon name="mdi:arrow-right" /></a></li>
       </ul>
     </div>
   </section>

@@ -1,6 +1,10 @@
 ---
 import { Icon } from "astro-icon/components";
+import { Image } from 'astro:assets';
 import * as colores from "../../public/colors.json";
+
+import dashboard from '../assets/proyects/dashboard.webp';
+import inventoryapp from '../assets/proyects/inventoryapp.webp';
 
 type Colores = { [key: string]: string };
 
@@ -11,7 +15,7 @@ let proyects = [
     name: ["Dashboard"],
     desc: "Aplicación de gestión de inventario para la diplomatura de programación de la UTN. La aplicación permite gestionar stock, crear productos, manejar un carrito de compras con cálculos de precios, impuestos y envíos, analizar transacciones, gestionar impuestos, y administrar múltiples cuentas. Cuenta con notificaciones de bajo stock y es de código abierto.",
     source: "https://github.com/bbauti/dashboard",
-    img: "dashboard",
+    img: dashboard,
     link: "dashboard",
     status: "",
     lenguagesColor: ["HTML", "CSS", "SCSS", "JavaScript", "Svelte", "Vite"],
@@ -21,7 +25,7 @@ let proyects = [
     name: ["Inventory App", "1rem"],
     desc: "Aplicación web para el control del inventario de una institución escolar. Fui responsable del frontend, la documentación y las tareas de DevOps. La aplicación, implementada en un servidor propio con CI/CD para actualizaciones automáticas, permitía a los maestros controlar el inventario escolar y localizar objetos en diferentes salones. Todo se creó desde cero, incluyendo correos y autenticación. Se uso la metodologia SCRUM.",
     source: "https://bitbucket.org/arrudeboy/inventory/src",
-    img: "inventoryapp",
+    img: inventoryapp,
     link: "",
     status: "wip",
     lenguagesColor: [
@@ -135,8 +139,8 @@ const checkColor = (leng: keyof Colores): string => {
               </div>
             </div>
             <figure class="w-fit h-fit my-auto">
-              <img
-                src={`/proyects/${proyect.img}.png`}
+              <Image
+                src={proyect.img}
                 alt={proyect.name[0]}
                 class="z-50 relative rounded-[25px] border border-gray-300 p-[0.1rem] max-h-full ml-auto"
               />
