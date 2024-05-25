@@ -19,7 +19,7 @@ let proyects = [
   },
   {
     name: ["Inventory App", "1rem"],
-    desc: "Aplicación web para el control del inventario de una institución escolar como parte de un equipo que usó la metodología SCRUM. Fui responsable del frontend, la documentación y las tareas de DevOps. La aplicación, implementada en un servidor propio con CI/CD para actualizaciones automáticas, permitía a los maestros controlar el inventario escolar y localizar objetos en diferentes salones. Todo se creó desde cero, incluyendo correos y autenticación.",
+    desc: "Aplicación web para el control del inventario de una institución escolar. Fui responsable del frontend, la documentación y las tareas de DevOps. La aplicación, implementada en un servidor propio con CI/CD para actualizaciones automáticas, permitía a los maestros controlar el inventario escolar y localizar objetos en diferentes salones. Todo se creó desde cero, incluyendo correos y autenticación. Se uso la metodologia SCRUM.",
     source: "https://bitbucket.org/arrudeboy/inventory/src",
     img: "inventoryapp",
     link: "",
@@ -73,7 +73,7 @@ const checkColor = (leng: keyof Colores): string => {
 };
 ---
 
-<section>
+<section class="mb-8">
   <h2 class="w-fit mx-auto mb-4 font-semibold text-lg md:text-xl relative">
     Proyectos destacados
   </h2>
@@ -83,7 +83,7 @@ const checkColor = (leng: keyof Colores): string => {
   >
     {
       proyects.map((proyect, index) => (
-        <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px]'>
+        <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px] overflow-hidden'>
           <section class="flex gap-4 flex-col md:flex-row">
             <div class="p-[1rem] md:max-w-[34ch] w-full flex flex-col gap-2">
               <header class="text-xl font-[600] flex items-center gap-2 select-none">
@@ -173,9 +173,4 @@ const checkColor = (leng: keyof Colores): string => {
     margin: 0 auto;
   }
 
-  @media (min-width: 768px) {
-    article > section {
-      max-height: calc(100vh - 80px);
-    }
-  }
 </style>
