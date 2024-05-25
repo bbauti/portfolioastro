@@ -3,7 +3,9 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div class="down-arrow pointer">
-  <Icon name="mdi:arrow-down-box" />
+  <a href="#cards">
+    <Icon name="mdi:arrow-down-box" />
+  </a>
 </div>
 
 <style>
@@ -42,7 +44,6 @@ import { Icon } from "astro-icon/components";
       position: absolute;
       inset: 0;
       margin-top: auto;
-      margin-bottom: 13rem;
       height: fit-content;
       font-size: 2rem;
       animation: bounce 2s infinite;

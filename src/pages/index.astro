@@ -51,7 +51,18 @@ import Footer from "../components/Footer.astro";
 
     <main class="shadow-xl">
       <div id="noise"></div>
-      <section class="relative min-h-screen">
+      <section class="relative p-[2rem]">
+        <div class="absolute inset-0 -z-[1] overflow-hidden opacity-20">
+          <div class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2">
+            <div class="absolute inset-0 wrapper">
+              <div class="absolute inset-0 overflow-hidden">
+                <div class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes">
+                  <div class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <Header />
         <Stack />
         <DownArrow />
@@ -67,6 +78,12 @@ import Footer from "../components/Footer.astro";
         font-weight: normal;
         font-style: normal;
         font-display: swap;
+      }
+
+      section {
+        overflow: hidden;
+        border-radius: 2rem;
+        margin-bottom: 2rem;
       }
 
       #noise {
@@ -148,6 +165,57 @@ import Footer from "../components/Footer.astro";
       @media (max-width: 768px) {
         main {
           padding: 1rem;
+        }
+      }
+
+      .wrapper {
+        mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+        -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+      }
+
+      .stripes {
+        transform: translate3d(0, 0, 0);
+        --bg: currentcolor;
+        --duration: 60s;
+        --stripes: repeating-linear-gradient(
+          120deg,
+          white 0%,
+          white 7%,
+          transparent 10%,
+          white 12%,
+          white 16%
+        );
+        /* --rainbow: repeating-linear-gradient(
+          120deg,
+          #ff00b3 10%,
+          #6517f7 25%,
+          #4665ef 50%,
+          #f65c8a 75%,
+          #00f7ff 90%
+        ); */
+        --rainbow: repeating-linear-gradient(
+          120deg,
+          transparent,
+          transparent
+        );
+        background-image: var(--stripes), var(--rainbow);
+        background-size: 120%, 200%;
+        background-position: 50% 50%, 50% 50%;
+      }
+
+      .animate-god-rays {
+        background-image: var(--stripes), var(--rainbow);
+        background-size: 100%, 100%;
+        background-position: 50% 50%;
+        animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate;
+      }
+
+      @keyframes god-rays {
+        0% {
+          transform: translateX(-50%)
+        }
+        to {
+          transform: translateX(0)
         }
       }
     </style>
