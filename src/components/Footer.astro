@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 
 ---
 
@@ -16,20 +18,31 @@
   </div>
   <div class="gradient" />
   <section class="flex justify-between w-full px-12 py-8">
-    <div class="text-[#f3f3f3] text-2xl tracking-wider italic font-[700]">
-      bbauti
+    <div class="text-[#f3f3f3] flex flex-col justify-center">
+      <span class="text-2xl tracking-wider italic font-[700]">
+        bbauti
+      </span>
+      <a
+        href="http://github.com/bbauti/portfolioastro"
+        class="flex items-center gap-2"
+        target="_blank"
+      >
+        <Icon name="mdi:github" />
+        <span class="mb-[.3rem]">source</span>
+      </a>
     </div>
-    <div>
-      flecha
-    </div>
-    <div class="flex flex-col justify-center gap-4">
+    <a href="#heading" class="w-fit h-fit"> <!-- TODO: Hacer bien -->
+      <img src='assets/arrows.gif' class="arrows">
+    </a>
+    <div class="flex flex-col justify-center gap-4 text-[#f3f3f3]">
       <p class="uppercase text-sm font-bold">Contactame</p>
       <ul class="flex flex-col gap-2 socials">
-        <li>Linkedin</li>
-        <li>GitHub</li>
-        <li>Twitter</li>
-        <li>Read.cv</li>
-        <li>Linkedin</li>
+        <li><a href='https://www.linkedin.com/in/bbauti'>Linkedin<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='mailto:bautistaigarzabal11@gmail.com'>Email<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='https://x.com/akabbauti'>Twitter<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='http://github.com/bbauti'>Github<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='https://read.cv/bbauti'>CV<Icon name="mdi:arrow-right" /></a></li>
+        <li><a href='https://www.behance.net/bbauti'>Behance<Icon name="mdi:arrow-right" /></a></li>
       </ul>
     </div>
   </section>
@@ -37,6 +50,25 @@
 </footer>
 
 <style>
+  .arrows {
+    width: 65px;
+    height: 65px;
+  }
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: .2rem;
+  }
+
+  ul > li > a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%
+  }
+
   .gradient {
     pointer-events: none;
     background: linear-gradient(180deg, rgba(228, 75, 233, 0.089) 0%, rgba(230, 230, 230, 0) 100%);
