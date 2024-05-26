@@ -86,17 +86,17 @@ const checkColor = (leng: keyof Colores): string => {
   </h2>
   <div
     id="cards"
-    class="flex flex-col gap-4 items-center"
+    class="flex flex-col gap-4 items-center w-full"
   >
     {
       proyects.map(proyect => (
-        <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px] overflow-hidden bg-[#f5f5f5] dark:bg-[#0E0E0E]'>
-          <section class="flex gap-4 flex-col md:flex-row">
+        <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px] overflow-hidden'>
+          <section class="flex gap-4 flex-col md:flex-row justify-between max-w-[1000px] relative mx-auto p-[0.8rem] rounded-[30px] w-full h-full ">
             <div class="p-[1rem] md:max-w-[34ch] w-full flex flex-col gap-2">
               <header class="text-xl font-[600] flex items-center gap-2 select-none">
                 <p class="ptitle">{proyect.name[0]}</p>
                 <div class="flex items-center gap-2">
-                  <div class="icon-card bg-[#AFAFAF]/10 hover:bg-[#AFAFAF]/40 hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
+                  <div class="icon-card hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
                     <a
                       href={proyect.source}
                       class="git"
@@ -107,7 +107,7 @@ const checkColor = (leng: keyof Colores): string => {
                     </a>
                   </div>
                   {proyect.status === "done" ? (
-                    <div class="icon-card bg-[#AFAFAF]/10 hover:bg-[#AFAFAF]/40 hover:color-[#AFAFAF] hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
+                    <div class="icon-card icon-card-text hover:color-[#AFAFAF] hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
                       <a href={proyect.link} aria-label="link" class="done" target="_blank">
                         <Icon name="mdi:external-link" />
                       </a>
@@ -156,30 +156,31 @@ const checkColor = (leng: keyof Colores): string => {
 </section>
 
 <style>
-  .cards {
-    width: 100%;
-  }
-
   article > section {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1000px;
-    position: relative;
-    padding: 0.8rem;
+    background-color: #f5f5f5;
     box-shadow:
       rgba(0, 0, 0, 0.05) 0px -3px 0px 0px inset,
       rgb(255, 255, 255) 0px 0px 0px 2px inset,
       rgba(0, 0, 0, 0.06) 0px 4px 2px 0px inset,
       rgba(0, 0, 0, 0.04) 0px 0px 24px 4px inset,
       rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-    width: 100%;
-    height: 100%;
-    border-radius: 30px;
-    margin: 0 auto;
+  }
+
+  .icon-card {
+    background-color: #AFAFAF1A; /* bg-[#AFAFAF]/10 */
+  }
+
+  .icon-card-text:hover {
+    color: #AFAFAF
+  }
+
+  .icon-card:hover {
+    background-color: #AFAFAF66 /* hover:bg-[#AFAFAF]/40 */
   }
 
   :global(.dark) {
     article > section {
+      background-color: ##0E0E0E;
       box-shadow:
         rgba(0, 0, 0, 0.05) 0px -3px 0px 0px inset,
         rgb(26, 26, 26) 0px 0px 0px 2px inset,
