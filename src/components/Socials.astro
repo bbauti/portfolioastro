@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <nav data-magnetic>
-  <ul>
+  <ul class="footer">
     <li><a href='https://www.linkedin.com/in/bbauti' target="_blank" aria-label="Linkedin"><Icon name="mdi:linkedin" /></a></li>
     <li><a href='mailto:bautistaigarzabal11@gmail.com' target="_blank" aria-label="Email"><Icon name="mdi:email" /></a></li>
     <li><a href='https://x.com/akabbauti' target="_blank" aria-label="Twitter"><Icon name="mdi:twitter" /></a></li>
@@ -13,8 +13,7 @@ import { Icon } from "astro-icon/components";
   </ul>
 </nav>
 
-<style>
-
+<style scoped>
 nav {
   position: fixed;
   border-radius: 10px;
@@ -27,7 +26,7 @@ nav {
   z-index: 1000;
 }
 
-ul {
+.footer {
   display: flex;
   margin: 0;
   padding: 0;
@@ -45,7 +44,7 @@ li {
 	font-weight: 400;
 }
 
-li a {
+.footer li a {
   display: flex;
   gap: 0.5rem;
   align-items: center;
@@ -58,7 +57,7 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+.footer li a:hover {
   color: #000000;
   background: color-mix(in lch, #222630, rgba(0, 0, 0, 0.219) 85%);
   border-radius: 6px;
@@ -69,42 +68,42 @@ li a:hover {
 }
 
 a:is(:focus-visible, :hover),
-ul:has(a:target:is(:focus-visible, :hover))::after {
+.footer:has(a:target:is(:focus-visible, :hover))::after {
 	color: #222630;
 }
 
 /*#region Active*/
-[data-no-anchor] ul:has(li:nth-of-type(1) a:is(:hover, :focus-visible)) {
+[data-no-anchor] .footer:has(li:nth-of-type(1) a:is(:hover, :focus-visible)) {
 	--item-active-y: var(--item-1-y);
 	--item-active-x: var(--item-1-x);
 	--item-active-width: var(--item-1-width);
 	--item-active-height: var(--item-1-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(2) a:is(:hover, :focus-visible)) {
+[data-no-anchor] .footer:has(li:nth-of-type(2) a:is(:hover, :focus-visible)) {
 	--item-active-y: var(--item-2-y);
 	--item-active-x: var(--item-2-x);
 	--item-active-width: var(--item-2-width);
 	--item-active-height: var(--item-2-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(3) a:is(:hover, :focus-visible)) {
+[data-no-anchor] .footer:has(li:nth-of-type(3) a:is(:hover, :focus-visible)) {
 	--item-active-y: var(--item-3-y);
 	--item-active-x: var(--item-3-x);
 	--item-active-width: var(--item-3-width);
 	--item-active-height: var(--item-3-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(4) a:is(:hover, :focus-visible)) {
+[data-no-anchor] .footer:has(li:nth-of-type(4) a:is(:hover, :focus-visible)) {
 	--item-active-y: var(--item-4-y);
 	--item-active-x: var(--item-4-x);
 	--item-active-width: var(--item-4-width);
 	--item-active-height: var(--item-4-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(5) a:is(:hover, :focus-visible)) {
+[data-no-anchor] .footer:has(li:nth-of-type(5) a:is(:hover, :focus-visible)) {
 	--item-active-y: var(--item-5-y);
 	--item-active-x: var(--item-5-x);
 	--item-active-width: var(--item-5-width);
 	--item-active-height: var(--item-5-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(6) a:is(:hover, :focus-visible)) {
+[data-no-anchor] .footer:has(li:nth-of-type(6) a:is(:hover, :focus-visible)) {
 	--item-active-y: var(--item-6-y);
 	--item-active-x: var(--item-6-x);
 	--item-active-width: var(--item-6-width);
@@ -113,37 +112,37 @@ ul:has(a:target:is(:focus-visible, :hover))::after {
 /*#endregion*/
 
 /*#region Target*/
-[data-no-anchor] ul:has(li:nth-of-type(1) a:target) {
+[data-no-anchor] .footer:has(li:nth-of-type(1) a:target) {
 	--target-y: var(--item-1-y);
 	--target-x: var(--item-1-x);
 	--target-width: var(--item-1-width);
 	--target-height: var(--item-1-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(2) a:target) {
+[data-no-anchor] .footer:has(li:nth-of-type(2) a:target) {
 	--target-y: var(--item-2-y);
 	--target-x: var(--item-2-x);
 	--target-width: var(--item-2-width);
 	--target-height: var(--item-2-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(3) a:target) {
+[data-no-anchor] .footer:has(li:nth-of-type(3) a:target) {
 	--target-y: var(--item-3-y);
 	--target-x: var(--item-3-x);
 	--target-width: var(--item-3-width);
 	--target-height: var(--item-3-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(4) a:target) {
+[data-no-anchor] .footer:has(li:nth-of-type(4) a:target) {
 	--target-y: var(--item-4-y);
 	--target-x: var(--item-4-x);
 	--target-width: var(--item-4-width);
 	--target-height: var(--item-4-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(5) a:target) {
+[data-no-anchor] .footer:has(li:nth-of-type(5) a:target) {
 	--target-y: var(--item-5-y);
 	--target-x: var(--item-5-x);
 	--target-width: var(--item-5-width);
 	--target-height: var(--item-5-height);
 }
-[data-no-anchor] ul:has(li:nth-of-type(6) a:target) {
+[data-no-anchor] .footer:has(li:nth-of-type(6) a:target) {
 	--target-y: var(--item-6-y);
 	--target-x: var(--item-6-x);
 	--target-width: var(--item-6-width);
@@ -151,12 +150,12 @@ ul:has(a:target:is(:focus-visible, :hover))::after {
 }
 /*#endregion*/
 
-ul:has(a:is(:focus-visible, :hover)) {
+.footer:has(a:is(:focus-visible, :hover)) {
   --intent: 1;
 }
 
-ul::before,
-ul::after {
+.footer::before,
+.footer::after {
 	--transition: 0.18s;
 	content: "";
 	position: fixed;
@@ -187,7 +186,7 @@ ul::after {
   );
 }
 
-ul::after {
+.footer::after {
 	top: calc(var(--target-y) * 1px);
 	left: calc((var(--target-x) * 1px) + 1.25rem);
 	height: calc(var(--target-height) * 1px);
@@ -203,20 +202,20 @@ ul::after {
 	a:target { anchor-name: --target; }
 	li:has(a:is(:hover, :focus-visible)) { anchor-name: --anchor; }
 
-  li a:hover {
+  .footer li a:hover {
     color: unset;
     background: unset;
     border-radius: unset;
   }
 
-	ul::before {
+	.footer::before {
 		left: anchor(--anchor left);
 		top: anchor(--anchor top);
 		width: anchor-size(--anchor width);
 		height: anchor-size(--anchor height);
 	}
 
-	ul::after {
+	.footer::after {
 		left: calc(anchor(--target left) + 1.25rem);
 		top: anchor(--target top);
 		width: calc(anchor-size(--target width) - 2.5rem);
@@ -225,17 +224,17 @@ ul::after {
 }
 
 @media screen and (max-width: 768px) {
-  li a {
+  .footer li a {
     font-size: 1.8  rem;
   }
 }
 
 :global(.dark) {
-	ul::after {
+	.footer::after {
 		background: color-mix(in lch, #d5d9e1, rgba(255, 255, 255, 0.219) 85%);
 	}
 
-	li a:hover {
+	.footer li a:hover {
 		color: #ffffff;
 		background: color-mix(in lch, #d5d9e1, rgba(255, 255, 255, 0.219) 85%);
 	}
@@ -244,8 +243,8 @@ ul::after {
 		outline-color: color-mix(in lch, #d5d9e1, transparent 50%);
 	}
 
-	a:is(:focus-visible, :hover),
-	ul:has(a:target:is(:focus-visible, :hover))::after {
+	.footer a:is(:focus-visible, :hover),
+	.footer:has(a:target:is(:focus-visible, :hover))::after {
 		color: #dddddd;
 	}
 
@@ -253,7 +252,7 @@ ul::after {
 		background-color: rgba(255, 255, 255, 0.253);
 	}
 
-	ul {
+	.footer {
 		color: color-mix(in lch, #d5d9e1 50%, rgb(255, 255, 255));
 	}
 }

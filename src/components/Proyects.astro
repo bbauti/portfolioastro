@@ -8,7 +8,6 @@ import type { ImageMetadata } from 'astro';
 type Colores = { [key: string]: string };
 
 const images = import.meta.glob<{ default: ImageMetadata }>('/src/assets/proyects/*.{jpeg,jpg,png,gif,webp}');
-console.log(images)
 
 const typedColores = colores as Colores;
 
@@ -91,12 +90,12 @@ const checkColor = (leng: keyof Colores): string => {
     {
       proyects.map(proyect => (
         <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px] overflow-hidden'>
-          <section class="flex gap-4 flex-col md:flex-row justify-between max-w-[1000px] relative mx-auto p-[0.8rem] rounded-[30px] w-full h-full ">
+          <section class="flex gap-4 shadow-project-outline dark:shadow-project-outline-dark bg-[#f5f5f5] dark:bg-[#121212] flex-col md:flex-row justify-between max-w-[1000px] relative mx-auto p-[0.8rem] rounded-[30px] w-full h-full ">
             <div class="p-[1rem] md:max-w-[34ch] w-full flex flex-col gap-2">
               <header class="text-xl font-[600] flex items-center gap-2 select-none">
                 <p class="ptitle">{proyect.name[0]}</p>
                 <div class="flex items-center gap-2">
-                  <div class="icon-card hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
+                  <div class="icon-card hover:-translate-y-[1px] bg-[#AFAFAF]/10 dark:bg-[#4A4A4A]/10 hover:bg-[#AFAFAF]/40 dark:hover:bg-[#4A4A4A]/40 p-1 transition-all ease-in-out rounded-md">
                     <a
                       href={proyect.source}
                       class="git"
@@ -107,13 +106,13 @@ const checkColor = (leng: keyof Colores): string => {
                     </a>
                   </div>
                   {proyect.status === "done" ? (
-                    <div class="icon-card icon-card-text hover:color-[#AFAFAF] hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
+                    <div class="icon-card icon-card-text bg-[#AFAFAF]/10 hover:color-[#AFAFAF] dark:hover:color-[#4A4A4A] dark:bg-[#4A4A4A]/10 hover:-translate-y-[1px] p-1 transition-all ease-in-out rounded-md">
                       <a href={proyect.link} aria-label="link" class="done" target="_blank">
                         <Icon name="mdi:external-link" />
                       </a>
                     </div>
                   ) : proyect.status === "wip" ? (
-                    <div class="icon-card disabled bg-[#AFAFAF]/10 p-1 rounded-md">
+                    <div class="icon-card disabled bg-[#AFAFAF]/10 dark:bg-[#4A4A4A]/10 p-1 rounded-md">
                       <Icon name="mdi:construction" />
                     </div>
                   ) : null}
@@ -122,7 +121,7 @@ const checkColor = (leng: keyof Colores): string => {
               <div class="flex flex-wrap gap-1 select-none">
                 {proyect.lenguages.map((leng, index) => (
                   <div
-                    class="border text-sm border-white/20 rounded-lg flex items-center justify-center px-2 shadow-sm"
+                    class="border text-sm border-white/20 dark:boder-black/20 rounded-lg flex items-center justify-center px-2 shadow-sm"
                     style={{ backgroundColor: checkColor(proyect.lenguagesColor[index])+'50' }}
                   >
                     <span
@@ -145,7 +144,7 @@ const checkColor = (leng: keyof Colores): string => {
               <Image
                 src={images[proyect.img]()}
                 alt={proyect.name[0]}
-                class="z-50 relative rounded-[25px] border border-gray-300 p-[0.1rem] max-h-full ml-auto"
+                class="z-50 relative rounded-[25px] border border-gray-300 dark:border-gray-600 p-[0.1rem] max-h-full ml-auto"
               />
             </figure>
           </section>
@@ -154,40 +153,3 @@ const checkColor = (leng: keyof Colores): string => {
     }
   </div>
 </section>
-
-<style>
-  article > section {
-    background-color: #f5f5f5;
-    box-shadow:
-      rgba(0, 0, 0, 0.05) 0px -3px 0px 0px inset,
-      rgb(255, 255, 255) 0px 0px 0px 2px inset,
-      rgba(0, 0, 0, 0.06) 0px 4px 2px 0px inset,
-      rgba(0, 0, 0, 0.04) 0px 0px 24px 4px inset,
-      rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
-  }
-
-  .icon-card {
-    background-color: #AFAFAF1A; /* bg-[#AFAFAF]/10 */
-  }
-
-  .icon-card-text:hover {
-    color: #AFAFAF
-  }
-
-  .icon-card:hover {
-    background-color: #AFAFAF66 /* hover:bg-[#AFAFAF]/40 */
-  }
-
-  :global(.dark) {
-    article > section {
-      background-color: ##0E0E0E;
-      box-shadow:
-        rgba(0, 0, 0, 0.05) 0px -3px 0px 0px inset,
-        rgb(26, 26, 26) 0px 0px 0px 2px inset,
-        rgba(0, 0, 0, 0.06) 0px 4px 2px 0px inset,
-        rgba(0, 0, 0, 0.04) 0px 0px 24px 4px inset,
-        rgba(0, 0, 0, 0.12) 0px 1px 3px 0px !important;
-    }
-  }
-
-</style>
