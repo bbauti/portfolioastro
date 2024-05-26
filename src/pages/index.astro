@@ -1,6 +1,7 @@
 ---
 import { SEO } from "astro-seo";
 
+import ThemeIcon from "../components/ThemeIcon.astro";
 import Socials from "../components/Socials.astro";
 import Header from "../components/Header.astro";
 import Stack from "../components/Stack.astro";
@@ -49,20 +50,21 @@ import Footer from "../components/Footer.astro";
   <body>
     <Socials />
 
-    <main class="shadow-xl">
+    <main class="shadow-xl relative">
+      <ThemeIcon />
       <div id="noise"></div>
-      <section class="relative pb-[4rem] lg:pb-[2rem] p-[2rem]">
-        <div class="absolute inset-0 -z-[1] overflow-hidden opacity-30">
-          <div class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2">
-            <div class="absolute inset-0 wrapper">
-              <div class="absolute inset-0 overflow-hidden">
-                <div class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes">
-                  <div class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"></div>
-                </div>
+      <div class="rays absolute inset-0 -z-[1] overflow-hidden opacity-40">
+        <div class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2">
+          <div class="absolute inset-0 wrapper">
+            <div class="absolute inset-0 overflow-hidden">
+              <div class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes">
+                <div class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"></div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <section class="relative pb-[4rem] lg:pb-[2rem] p-[2rem]">
         <Header />
         <Stack />
         <DownArrow />
@@ -216,6 +218,24 @@ import Footer from "../components/Footer.astro";
         }
         to {
           transform: translateX(0)
+        }
+      }
+
+      /* Dark mode */
+
+      :global(.dark) {
+
+        main {
+          color: #ededed;
+          background-color: #0c0c0c;
+        }
+
+        .rays {
+          opacity: 0.1;
+        }
+
+        #noise {
+          opacity: 0.03;
         }
       }
     </style>

@@ -153,4 +153,21 @@ import { Icon } from "astro-icon/components";
       flex-wrap: wrap;
     }
   }
+
+  :global(.dark) {
+
+    .iconsection {
+      border-left-color: #ffffff1f;
+      border-right-color: #ffffff1f;
+    }
+
+    [data-tooltip]:hover {
+      border-color: #ffffff1f;
+    }
+
+    [data-tooltip]:after {
+      background-color: #e6e6e62a;
+      border-color: #ffffff1f;
+    }
+  }
 </style>
