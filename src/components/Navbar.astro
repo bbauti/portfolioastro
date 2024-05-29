@@ -1,51 +1,75 @@
 ---
+import { Icon } from "astro-icon/components";
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
-<nav class="absolute top-8 right-0 z-50 flex justify-between w-fit mr-8">
+<nav class="absolute top-8 z-50 flex justify-between w-fit mr-8">
   <ul class="flex gap-4 font-500 text-[#000000b8] dark:text-[#ffffffb8]">
     <li class="hover:text-black dark:hover:text-white">
       <a
         href="https://www.linkedin.com/in/bbauti"
         target="_blank"
-        aria-label="Linkedin">Linkedin</a
+        aria-label="Linkedin"
       >
+        <Icon name="mdi:linkedin" class="block sm:hidden h-6 w-6" />
+        <span class="hidden sm:block">Linkedin</span>
+      </a>
     </li>
     <li class="hover:text-black dark:hover:text-white">
       <a
         href="mailto:bautistaigarzabal11@gmail.com"
         target="_blank"
-        aria-label="Email">Email</a
+        aria-label="Email"
       >
+        <Icon name="mdi:email" class="block sm:hidden h-6 w-6" />
+        <span class="hidden sm:block">Email</span>
+      </a>
     </li>
     <li class="hover:text-black dark:hover:text-white">
-      <a href="https://x.com/akabbauti" target="_blank" aria-label="Twitter"
-        >Twitter</a
-      >
+      <a href="https://x.com/akabbauti" target="_blank" aria-label="Twitter">
+        <Icon name="mdi:twitter" class="block sm:hidden h-6 w-6" />
+        <span class="hidden sm:block">Twitter</span>
+      </a>
     </li>
     <li class="hover:text-black dark:hover:text-white">
-      <a href="http://github.com/bbauti" target="_blank" aria-label="Github"
-        >Github</a
-      >
+      <a href="http://github.com/bbauti" target="_blank" aria-label="Github">
+        <Icon name="mdi:github" class="block sm:hidden h-6 w-6" />
+        <span class="hidden sm:block">Github</span>
+      </a>
     </li>
     <li class="hover:text-black dark:hover:text-white">
-      <a href="https://read.cv/bbauti" target="_blank" aria-label="CV"
-        >Read.cv</a
-      >
+      <a href="https://read.cv/bbauti" target="_blank" aria-label="CV">
+        <Icon name="ph:read-cv-logo-fill" class="block sm:hidden h-6 w-6" />
+        <span class="hidden sm:block">Read.cv</span>
+      </a>
     </li>
     <li class="hover:text-black dark:hover:text-white">
       <a
         href="https://www.behance.net/bbauti"
         target="_blank"
-        aria-label="Behance">Behance</a
+        aria-label="Behance"
       >
+        <Icon name="ph:behance-logo-fill" class="block sm:hidden h-6 w-6" />
+        <span class="hidden sm:block">Behance</span>
+      </a>
     </li>
     <li class="hover:text-black dark:hover:text-white"><ThemeIcon /></li>
   </ul>
-
-  <style>
-    li {
-      transition: all 0.2s ease;
-    }
-  </style>
 </nav>
+
+<style>
+  li {
+    transition: all 0.2s ease;
+  }
+
+  nav {
+    right: 0;
+  }
+
+  @media (max-width: 640px) {
+    nav {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+</style>
