@@ -1,8 +1,10 @@
 ---
 import { SEO } from "astro-seo";
+import { ViewTransitions } from "astro:transitions";
 
 import ThemeIcon from "../components/ThemeIcon.astro";
 import Socials from "../components/Socials.astro";
+import Navbar from "../components/Navbar.astro";
 import Header from "../components/Header.astro";
 import Stack from "../components/Stack.astro";
 import DownArrow from "../components/DownArrow.astro";
@@ -46,19 +48,27 @@ import Footer from "../components/Footer.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <ViewTransitions />
   </head>
   <body>
-    <Socials />
+    <!-- <Socials /> -->
+    <Navbar />
 
     <main class="shadow-xl relative">
-      <ThemeIcon />
       <div id="noise"></div>
       <div class="rays absolute inset-0 -z-[1] overflow-hidden opacity-40">
-        <div class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2">
+        <div
+          class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2"
+        >
           <div class="absolute inset-0 wrapper">
             <div class="absolute inset-0 overflow-hidden">
-              <div class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes">
-                <div class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"></div>
+              <div
+                class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes"
+              >
+                <div
+                  class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"
+                >
+                </div>
               </div>
             </div>
           </div>
@@ -80,6 +90,10 @@ import Footer from "../components/Footer.astro";
         font-weight: normal;
         font-style: normal;
         font-display: swap;
+      }
+
+      body {
+        font-family: "Inter";
       }
 
       section {
@@ -171,8 +185,16 @@ import Footer from "../components/Footer.astro";
       }
 
       .wrapper {
-        mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-        -webkit-mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+        mask-image: radial-gradient(
+          ellipse at 100% 0%,
+          black 40%,
+          transparent 70%
+        );
+        -webkit-mask-image: radial-gradient(
+          ellipse at 100% 0%,
+          black 40%,
+          transparent 70%
+        );
       }
 
       .stripes {
@@ -195,36 +217,34 @@ import Footer from "../components/Footer.astro";
           #f65c8a 75%,
           #00f7ff 90%
         ); */
-        --rainbow: repeating-linear-gradient(
-          120deg,
-          transparent,
-          transparent
-        );
+        --rainbow: repeating-linear-gradient(120deg, transparent, transparent);
         background-image: var(--stripes), var(--rainbow);
         background-size: 120%, 200%;
-        background-position: 50% 50%, 50% 50%;
+        background-position:
+          50% 50%,
+          50% 50%;
       }
 
       .animate-god-rays {
         background-image: var(--stripes), var(--rainbow);
         background-size: 100%, 100%;
         background-position: 50% 50%;
-        animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate;
+        animation: god-rays var(--duration) cubic-bezier(0.15, 0, 0.85, 1)
+          infinite alternate;
       }
 
       @keyframes god-rays {
         0% {
-          transform: translateX(-50%)
+          transform: translateX(-50%);
         }
         to {
-          transform: translateX(0)
+          transform: translateX(0);
         }
       }
 
       /* Dark mode */
 
       :global(.dark) {
-
         main {
           color: #ededed;
           background-color: #0c0c0c;

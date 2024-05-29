@@ -6,6 +6,7 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro check && astro build",
+    "lint": "eslint 'src/**/*.{js,astro}'",
     "preview": "astro preview",
     "astro": "astro"
   },
@@ -16,6 +17,7 @@
     "@iconify-json/devicon": "^1.1.41",
     "@iconify-json/mdi": "^1.1.66",
     "@iconify-json/ph": "^1.1.13",
+    "@typescript-eslint/eslint-plugin": "^7.11.0",
     "astro": "^4.8.6",
     "astro-icon": "^1.1.0",
     "astro-integration-lottie": "^0.3.0",
@@ -28,6 +30,7 @@
     "typescript": "^5.4.5"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^7.11.0",
     "eslint": "^9.3.0",
     "eslint-plugin-astro": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^6.8.0",
