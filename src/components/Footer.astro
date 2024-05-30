@@ -1,27 +1,34 @@
 ---
 import { Icon } from "astro-icon/components";
-import { Image } from 'astro:assets';
-import arrows from '../assets/arrows.gif';
+import { Image } from "astro:assets";
+import LottieAnimation from "astro-integration-lottie/Lottie.astro";
 ---
 
-<footer class="min-h-[50dvh] flex items-center sticky bottom-0 bg-[#222630] relative">
+<footer
+  class="min-h-[50dvh] flex items-center sticky bottom-0 bg-[#222630] relative"
+>
   <div class="absolute inset-0 -z-[1] overflow-hidden">
-    <div class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2">
+    <div
+      class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2"
+    >
       <div class="absolute inset-0 wrapper">
         <div class="absolute inset-0 overflow-hidden">
-          <div class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white blur-[15px] invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes">
-            <div class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"></div>
+          <div
+            class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white blur-[15px] invert dark:text-black dark:invert-0 transition-opacity duration-500 opacity-30 stripes"
+          >
+            <div
+              class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"
+            >
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="gradient" />
+  <div class="gradient"></div>
   <section class="flex justify-between w-full px-12 py-8">
     <div class="text-[#f3f3f3] flex flex-col justify-center">
-      <span class="text-2xl tracking-wider italic font-[700]">
-        bbauti
-      </span>
+      <span class="text-2xl tracking-wider italic font-[700]"> bbauti </span>
       <a
         href="http://github.com/bbauti/portfolioastro"
         aria-label="Source code"
@@ -34,53 +41,82 @@ import arrows from '../assets/arrows.gif';
     </div>
     <a
       href="#heading"
-      class="w-fit h-fit"
+      class="w-fit h-fit rounded-full border border-transparent hover:border-black transition-all ease overflow-hidden"
       aria-label="Go to top"
     >
-      <Image
-        src={arrows}
-        alt="Go to top"
-        class="arrows"
-      >
+      <div style="width: 65px; height: fit-content;">
+        <LottieAnimation src="assets/animation.json" autoplay="visible" />
+      </div>
     </a>
     <div class="flex flex-col justify-center gap-4 text-[#f3f3f3]">
       <p class="uppercase text-sm font-bold">Contactame</p>
       <ul class="flex flex-col gap-2 socials">
-        <li><a href='https://www.linkedin.com/in/bbauti' target="_blank" aria-label="Linkedin">Linkedin<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='mailto:bautistaigarzabal11@gmail.com' target="_blank" aria-label="Email">Email<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='https://x.com/akabbauti' target="_blank" aria-label="Twitter">Twitter<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='http://github.com/bbauti' target="_blank" aria-label="Github">Github<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='https://read.cv/bbauti' target="_blank" aria-label="Curriculum">CV<Icon name="mdi:arrow-right" /></a></li>
-        <li><a href='https://www.behance.net/bbauti' target="_blank" aria-label="Behance">Behance<Icon name="mdi:arrow-right" /></a></li>
+        <li>
+          <a
+            href="https://www.linkedin.com/in/bbauti"
+            target="_blank"
+            aria-label="Linkedin">Linkedin<Icon name="mdi:arrow-right" /></a
+          >
+        </li>
+        <li>
+          <a
+            href="mailto:bautistaigarzabal11@gmail.com"
+            target="_blank"
+            aria-label="Email">Email<Icon name="mdi:arrow-right" /></a
+          >
+        </li>
+        <li>
+          <a href="https://x.com/akabbauti" target="_blank" aria-label="Twitter"
+            >Twitter<Icon name="mdi:arrow-right" /></a
+          >
+        </li>
+        <li>
+          <a href="http://github.com/bbauti" target="_blank" aria-label="Github"
+            >Github<Icon name="mdi:arrow-right" /></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://read.cv/bbauti"
+            target="_blank"
+            aria-label="Curriculum">CV<Icon name="mdi:arrow-right" /></a
+          >
+        </li>
+        <li>
+          <a
+            href="https://www.behance.net/bbauti"
+            target="_blank"
+            aria-label="Behance">Behance<Icon name="mdi:arrow-right" /></a
+          >
+        </li>
       </ul>
     </div>
   </section>
-  <div class="gradient-bottom" />
+  <div class="gradient-bottom"></div>
 </footer>
 
 <style>
-  .arrows {
-    width: 65px;
-    height: 65px;
-  }
-
   ul {
     display: flex;
     flex-direction: column;
-    gap: .2rem;
+    gap: 0.2rem;
   }
 
-  ul > li > a{
+  ul > li > a {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 0.5rem;
-    width: 100%
+    width: 100%;
   }
 
   .gradient {
     pointer-events: none;
-    background: linear-gradient(180deg, rgba(228, 75, 233, 0.089) 0%, rgba(230, 230, 230, 0) 100%);
+    background: linear-gradient(
+      180deg,
+      rgba(228, 75, 233, 0.089) 0%,
+      rgba(230, 230, 230, 0) 100%
+    );
     position: absolute;
     top: 0;
     left: 0;
@@ -90,7 +126,11 @@ import arrows from '../assets/arrows.gif';
 
   .gradient-bottom {
     pointer-events: none;
-    background: linear-gradient(0deg, rgba(255, 255, 255, 0.089) 0%, rgba(230, 230, 230, 0) 100%);
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 0.089) 0%,
+      rgba(230, 230, 230, 0) 100%
+    );
     position: absolute;
     bottom: 0;
     left: 0;
@@ -100,7 +140,11 @@ import arrows from '../assets/arrows.gif';
 
   .wrapper {
     mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
-    -webkit-mask-image: radial-gradient(ellipse at 0% 0%, black 40%, transparent 70%);
+    -webkit-mask-image: radial-gradient(
+      ellipse at 0% 0%,
+      black 40%,
+      transparent 70%
+    );
   }
 
   .stripes {
@@ -125,22 +169,25 @@ import arrows from '../assets/arrows.gif';
     );
     background-image: var(--stripes), var(--rainbow);
     background-size: 120%, 200%;
-    background-position: 50% 50%, 50% 50%;
+    background-position:
+      50% 50%,
+      50% 50%;
   }
 
   .animate-god-rays {
     background-image: var(--stripes), var(--rainbow);
     background-size: 100%, 100%;
     background-position: 50% 50%;
-    animation: god-rays var(--duration) cubic-bezier(.15,0,.85,1) infinite alternate;
+    animation: god-rays var(--duration) cubic-bezier(0.15, 0, 0.85, 1) infinite
+      alternate;
   }
 
   @keyframes god-rays {
     0% {
-      transform: translateX(-50%)
+      transform: translateX(-50%);
     }
     to {
-      transform: translateX(0)
+      transform: translateX(0);
     }
   }
 </style>
