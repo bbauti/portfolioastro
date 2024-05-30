@@ -2,6 +2,12 @@
 
 ---
 
+<script>
+  addEventListener("load", () => {
+    document.querySelector(".highlight")?.classList.add("animate");
+  });
+</script>
+
 <header
   id="heading"
   class="pt-[50px] md:pt-[80px] flex flex-col gap-4 items-center justify-center"
@@ -72,11 +78,15 @@
       position: absolute;
       content: "";
       height: 100%;
-      width: 96%;
+      width: 0%;
       z-index: -1;
       bottom: 0;
       transform: skewY(-2deg);
       transition: all 0.5s ease;
+    }
+
+    .animate.highlight::before {
+      width: 96%;
     }
 
     .frontend {
