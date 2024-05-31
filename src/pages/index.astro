@@ -7,6 +7,7 @@ import Header from "../components/Header.astro";
 import Stack from "../components/Stack.astro";
 import DownArrow from "../components/DownArrow.astro";
 import Proyects from "../components/Proyects.astro";
+import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
@@ -55,7 +56,7 @@ import Footer from "../components/Footer.astro";
     <main class="shadow-xl relative">
       <div id="noise"></div>
       <div
-        class="rays absolute inset-0 z-10 pointer-events-none overflow-hidden opacity-40"
+        class="rays absolute inset-0 z-10 pointer-events-none overflow-hidden opacity-30"
       >
         <div
           class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2"
@@ -80,6 +81,7 @@ import Footer from "../components/Footer.astro";
         <DownArrow />
       </section>
       <Proyects />
+      <Contact />
     </main>
     <Footer />
 
@@ -87,6 +89,14 @@ import Footer from "../components/Footer.astro";
       @font-face {
         font-family: "Inter";
         src: url("/fonts/InterVariable.ttf") format("ttf");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "Geist";
+        src: url("/fonts/GeistMonoVF.ttf") format("ttf");
         font-weight: normal;
         font-style: normal;
         font-display: swap;

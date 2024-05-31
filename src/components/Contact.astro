@@ -1,0 +1,67 @@
+---
+
+---
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const preElement = document.querySelector("pre");
+    const classes = '[counter-increment:line] before:[content:counter(line)] before:inline-block before:w-[1rem] before:mr-[1.5rem] before:text-right before:text-gray-500';
+    const lines = preElement!.innerText
+      .trim()
+      .split("\n")
+      .map((line) => `<span class="${classes}">${line.trim()}</span>`)
+      .join("\n");
+    preElement!.innerHTML = lines;
+  });
+</script>
+
+<main class="flex justify-center w-full gap-2 flex-col md:flex-row my-24">
+  <section
+    class="select-none border border-dashed border-gray-500/40 rounded-[10px] w-fit rotate-[-2deg] shadow-md overflow-hidden mx-auto md:m-0"
+  >
+    <div
+      class="border-0 border-b border-b-gray-500/40 border-dashed relative p-[.5rem]"
+    >
+      <!-- TODO: Vertical centering -->
+      <div
+        class="absolute flex gap-1 items-center left-[.5rem] text-[.8rem] leading-[.5rem] h-full top-0"
+      >
+        <p class="text-orange-400">●</p>
+        <p class="text-yellow-300">●</p>
+        <p class="text-green-500">●</p>
+      </div>
+      <p class="mx-auto w-fit text-gray-500 text-sm font-mono">about_bbauti.txt</p>
+    </div>
+    <pre
+      class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap">
+      Hola, soy Bautista. Un desarrollador web
+
+      Dicta recusandae veniam
+      cumque. Iure laborum id eius
+
+      Deleniti dicta repellat quaerat
+      quidem temporibus quisquam?
+
+      Lorem ipsum dolor sit amet consectetur
+      adipisicing elit.
+    </pre>
+  </section>
+  <!-- <section class="min-w-[30ch]">Hola</section> -->
+</main>
+
+<style>
+  pre {
+    counter-reset: line;
+  }
+  span {
+    counter-increment: line;
+  }
+  span::before {
+    content: counter(line);
+    display: inline-block;
+    width: 1rem;
+    margin-right: 1.5rem;
+    text-align: right;
+    color: gray;
+  }
+</style>
