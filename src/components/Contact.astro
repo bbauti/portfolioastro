@@ -30,10 +30,10 @@
         <p class="text-yellow-300">●</p>
         <p class="text-green-500">●</p>
       </div>
-      <p class="mx-auto w-fit text-gray-500 text-sm font-mono">about_bbauti.txt</p>
+      <p class="mx-auto w-fit text-gray-500 text-sm font-['Geist Mono']">about_bbauti.txt</p>
     </div>
     <pre
-      class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap">
+      class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap font-['Geist Mono']">
       Hola, soy Bautista. Un desarrollador web
 
       Dicta recusandae veniam
@@ -50,6 +50,14 @@
 </main>
 
 <style>
+  @font-face {
+    font-family: "Geist Mono";
+    src: url("/fonts/GeistMonoVF.ttf") format("ttf");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   pre {
     counter-reset: line;
   }
