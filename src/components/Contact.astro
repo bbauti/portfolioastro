@@ -5,7 +5,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const preElement = document.querySelector("pre");
-    const classes = '[counter-increment:line] before:[content:counter(line)] before:inline-block before:w-[1rem] before:mr-[1.5rem] before:text-right before:text-gray-500';
+    const classes = 'inline-block pl-[2rem] -indent-[2rem]  [counter-increment:line] before:[content:counter(line)] before:inline-block before:w-[1rem] before:mr-[1rem] before:text-right before:text-gray-500';
     const lines = preElement!.innerText
       .trim()
       .split("\n")
@@ -34,10 +34,9 @@
     </div>
     <pre
       class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap font-['Geist Mono']">
-      Hola, soy Bautista Igarzabal. Con más de
-      dos años de experiencia en desarrollo web y
-      casi un año dedicándome profesionalmente a lo
-      que me apasiona, disfruto transformar visiones
+      Con más de dos años de experiencia en desarrollo
+      web y casi un año dedicándome profesionalmente a
+      lo que me apasiona, disfruto transformar visiones
       artísticas en experiencias web interactivas.
 
       Destaco en entornos de equipo, disfrutando de
@@ -51,7 +50,7 @@
   <section class="max-w-[20ch] w-full my-auto">
     <h2 class="text-2xl font-bold">
       Listo para iniciar tu proyecto?
-      <a href="mailto:bautistaigarzabal11@gmail.com" class="underline hover:text-blue-500 transition-all ease">Hablemos.</a>
+      <a href="mailto:bautistaigarzabal11@gmail.com" class="underline hover:text-violet-500 transition-all ease">Hablemos!</a>
     </h2>
   </section>
 </main>
@@ -63,20 +62,5 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
-  }
-
-  pre {
-    counter-reset: line;
-  }
-  span {
-    counter-increment: line;
-  }
-  span::before {
-    content: counter(line);
-    display: inline-block;
-    width: 1rem;
-    margin-right: 1.5rem;
-    text-align: right;
-    color: gray;
   }
 </style>
