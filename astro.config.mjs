@@ -9,5 +9,6 @@ import robotsTxt from "astro-robots-txt";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://test.bbauti.ar',
-  integrations: [tailwind(), icon(), sitemap(), robotsTxt(), lottie()]
+  integrations: [tailwind(), icon(), sitemap(), robotsTxt(), lottie()],
+  renderers: [],
 });

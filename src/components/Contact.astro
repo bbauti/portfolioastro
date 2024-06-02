@@ -5,7 +5,7 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const preElement = document.querySelector("pre");
-    const classes = 'inline-block pl-[2rem] -indent-[2rem]  [counter-increment:line] before:[content:counter(line)] before:inline-block before:w-[1rem] before:mr-[1rem] before:text-right before:text-gray-500';
+    const classes = 'inline-block md:pl-[2rem] -indent-[2rem]  [counter-increment:line] md:before:[content:counter(line)] before:inline-block before:w-[1rem] before:mr-[1rem] before:text-right before:text-gray-500';
     const lines = preElement!.innerText
       .trim()
       .split("\n")
