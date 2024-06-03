@@ -1,5 +1,5 @@
 ---
-
+import * as m from '../paraglide/messages';
 ---
 
 <script>
@@ -12,10 +12,10 @@
   id="heading"
   class="pt-[50px] md:pt-[80px] flex flex-col gap-4 items-center justify-center"
 >
-  <h1 class="md:text-4xl text-2xl transition-all ease">¡Hola! Soy</h1>
+  <h1 class="md:text-4xl text-2xl transition-all ease">{m.header_title}</h1>
   <h2 class="md:text-6xl text-4xl text-nowrap ">Bautista Igarzabal</h2>
   <h3 class="md:text-3xl text-xl">
-    <span class="highlight text-[#222630]">Desarrollador web,</span> especializado en el
+    <span class="highlight text-[#222630]">{m.header_subtitle_developer}</span> {m.header_subtitle_specialized}
     <span>
       <span class="frontend">
         frontend

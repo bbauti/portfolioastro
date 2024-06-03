@@ -1,5 +1,5 @@
 ---
-
+import * as m from '../paraglide/messages';
 ---
 
 <script>
@@ -32,25 +32,42 @@
       </div>
       <p class="mx-auto w-fit text-gray-500 text-sm font-['Geist Mono']">about_bbauti.txt</p>
     </div>
-    <pre
-      class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap font-['Geist Mono']">
-      Con más de dos años de experiencia en desarrollo
-      web y casi un año dedicándome profesionalmente a
-      lo que me apasiona, disfruto transformar visiones
-      artísticas en experiencias web interactivas.
+      {Astro.currentLocale === 'es' ? (
+        <pre
+          class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap font-['Geist Mono']">
+          Con más de dos años de experiencia en desarrollo
+          web y casi un año dedicándome profesionalmente a
+          lo que me apasiona, disfruto transformar visiones
+          artísticas en experiencias web interactivas.
 
-      Destaco en entornos de equipo, disfrutando de
-      la colaboración, brindando ayuda y discutiendo
-      abiertamente ideas y preguntas.
+          Destaco en entornos de equipo, disfrutando de
+          la colaboración, brindando ayuda y discutiendo
+          abiertamente ideas y preguntas.
 
-      Actualmente, me encuentro cursando una tecnicatura
-      en programación, aprendiendo y creciendo cada día.
-    </pre>
+          Actualmente, me encuentro cursando una tecnicatura
+          en programación, aprendiendo y creciendo cada día.
+        </pre>
+      ) : (
+        <pre
+          class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap font-['Geist Mono']">
+          With more than two years of experience in web
+          development and almost a year dedicating myself
+          professionally to what I'm passionate about, I
+          enjoy transforming artistic visions into
+          interactive web experiences.
+
+          I excel in team environments, enjoying collaboration,
+          providing help, and openly discussing ideas and questions.
+
+          Currently, I am pursuing a degree in programming,
+          learning and growing every day.
+        </pre>
+      )}
   </section>
   <section class="max-w-[20ch] w-full my-auto">
     <h2 class="text-2xl font-bold">
-      Listo para iniciar tu proyecto?
-      <a href="mailto:bautistaigarzabal11@gmail.com" class="underline hover:text-violet-500 transition-all ease">Hablemos!</a>
+      {m.contact_title}
+      <a href="mailto:bautistaigarzabal11@gmail.com" class="underline hover:text-violet-500 transition-all ease">{m.contact_subtitle}</a>
     </h2>
   </section>
 </main>

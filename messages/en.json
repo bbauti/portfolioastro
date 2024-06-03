@@ -1,0 +1,12 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "header_title": "Hello! I'm",
+    "header_subtitle_developer": "Web developer,",
+    "header_subtitle_specialized": "specialized in the",
+    "projects_title": "Featured projects",
+    "projects_dashboard": "Inventory management application for the programming diploma course at UTN. The application allows for stock management, product creation, handling a shopping cart with price, tax, and shipping calculations, transaction analysis, tax management, and managing multiple accounts. It includes low stock notifications and is open source.",
+    "projects_inventory": "Web application for inventory control of a school institution. I was responsible for the frontend, documentation, and DevOps tasks. The application, implemented on a self-hosted server with CI/CD for automatic updates, allowed teachers to control the school inventory and locate items in different classrooms. Everything was created from scratch, including emails and authentication. The SCRUM methodology was used.",
+    "contact_title": "Ready to start your project?",
+    "contact_subtitle": "Let's talk!",
+    "footer_contact": "Contact me"
+}

@@ -1,0 +1,12 @@
+{
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "header_title": "Hola! Soy",
+    "header_subtitle_developer": "Desarrollador web,",
+    "header_subtitle_specialized": "especializado en el",
+    "projects_title": "Proyectos destacados",
+    "projects_dashboard": "Aplicación de gestión de inventario para la diplomatura de programación de la UTN. La aplicación permite gestionar stock, crear productos, manejar un carrito de compras con cálculos de precios, impuestos y envíos, analizar transacciones, gestionar impuestos, y administrar múltiples cuentas. Cuenta con notificaciones de bajo stock y es de código abierto.",
+    "projects_inventory": "Aplicación web para el control del inventario de una institución escolar. Fui responsable del frontend, la documentación y las tareas de DevOps. La aplicación, implementada en un servidor propio con CI/CD para actualizaciones automáticas, permitía a los maestros controlar el inventario escolar y localizar objetos en diferentes salones. Todo se creó desde cero, incluyendo correos y autenticación. Se uso la metodología SCRUM.",
+    "contact_title": "¿Listo para iniciar tu proyecto?",
+    "contact_subtitle": "¡Hablemos!",
+    "footer_contact": "Contactame"
+}
