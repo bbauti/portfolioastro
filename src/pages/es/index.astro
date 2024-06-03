@@ -1,22 +1,22 @@
 ---
 import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
-import { languageTag } from "../paraglide/runtime";
+import { languageTag } from "../../paraglide/runtime";
 
-import Navbar from "../components/Navbar.astro";
-import Header from "../components/Header.astro";
-import Stack from "../components/Stack.astro";
-import DownArrow from "../components/DownArrow.astro";
-import Proyects from "../components/Proyects.astro";
-import Contact from "../components/Contact.astro";
-import Footer from "../components/Footer.astro";
+import Navbar from "../../components/Navbar.astro";
+import Header from "../../components/Header.astro";
+import Stack from "../../components/Stack.astro";
+import DownArrow from "../../components/DownArrow.astro";
+import Proyects from "../../components/Proyects.astro";
+import Contact from "../../components/Contact.astro";
+import Footer from "../../components/Footer.astro";
 ---
 
 <html transition:animate="slide" lang={languageTag()} dir={Astro.locals.paraglide.dir}>
   <head>
     <SEO
       title="Bautista Igarzabal"
-      description="Personal portfolio"
+      description="Portfolio personal"
       openGraph={{
         basic: {
           title: "Bautista Igarzabal",
