@@ -1,7 +1,6 @@
 ---
 import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
-import { languageTag } from "../paraglide/runtime";
 
 import Navbar from "../components/Navbar.astro";
 import Header from "../components/Header.astro";
@@ -12,11 +11,11 @@ import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
-<html transition:animate="slide" lang={languageTag()}>
+<html lang="en" transition:animate="slide">
   <head>
     <SEO
       title="Bautista Igarzabal"
-      description="Personal portfolio"
+      description="Portfolio personal"
       openGraph={{
         basic: {
           title: "Bautista Igarzabal",
@@ -25,7 +24,7 @@ import Footer from "../components/Footer.astro";
         },
       }}
       twitter={{
-        creator: "@akabbauti",
+        creator: "@aka.bbauti",
       }}
       extend={{
         // extending the default link tags

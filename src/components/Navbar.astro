@@ -1,7 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-import { availableLanguageTags } from '../paraglide/runtime.js';
-import { getAbsoluteLocaleUrl } from 'astro:i18n';
 import ThemeIcon from "./ThemeIcon.astro";
 ---
 
@@ -54,11 +52,6 @@ import ThemeIcon from "./ThemeIcon.astro";
         <Icon name="ph:behance-logo-fill" class="block sm:hidden h-6 w-6" />
         <span class="hidden sm:block">Behance</span>
       </a>
-    </li>
-    <li>
-      {availableLanguageTags.map(lang => (lang === Astro.currentLocale ? null : (
-        <a rel="alternate" hreflang={lang} href={getAbsoluteLocaleUrl(lang, "")}>{lang}</a>
-      )))}
     </li>
     <li class="hover:text-black dark:hover:text-white"><ThemeIcon /></li>
   </ul>
