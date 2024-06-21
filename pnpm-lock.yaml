@@ -47,12 +47,21 @@ importers:
       eslint-plugin-tailwindcss:
         specifier: ^3.15.2
         version: 3.17.0(tailwindcss@3.4.3)
+      gsap:
+        specifier: ^3.12.5
+        version: 3.12.5
+      locomotive-scroll:
+        specifier: 5.0.0-beta.13
+        version: 5.0.0-beta.13
       lottie-web:
         specifier: ^5.12.2
         version: 5.12.2
       sharp:
         specifier: ^0.33.4
         version: 0.33.4
+      split-type:
+        specifier: ^0.3.4
+        version: 0.3.4
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
@@ -258,6 +267,9 @@ packages:
   '@babel/types@7.24.7':
     resolution: {integrity: sha512-XEFXSlxiG5td2EJRe8vOmRbaXVgfcBlszKujvVmWIK/UpywWljQCfzAv3RQCGujWQ1RD4YYWEAqDXfuJiy8f5Q==}
     engines: {node: '>=6.9.0'}
+
+  '@darkroom.engineering/tempus@0.0.46':
+    resolution: {integrity: sha512-s5vav3KMHYezvUCl4ee5epg0oimF6M8C9gAaKxFnFaTvX2q3ywFDryIv6XLd0mRFUt3S1uHDJqKaiEcs2ZVSvw==}
 
   '@emmetio/abbreviation@2.3.3':
     resolution: {integrity: sha512-mgv58UrU3rh4YgbE/TzgLQwJ3pFsHHhCLqY20aJq+9comytTXUDNGG/SMtSeMJdkpxgXSXunBGLD8Boka3JyVA==}
@@ -1654,6 +1666,9 @@ packages:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
 
+  gsap@3.12.5:
+    resolution: {integrity: sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==}
+
   has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
 
@@ -1989,6 +2004,17 @@ packages:
     resolution: {integrity: sha512-MbjN408fEndfiQXbFQ1vnd+1NoLDsnQW41410oQBXiyXDMYH5z505juWa4KUE1LqxRC7DgOgZDbKLxHIwm27hA==}
     engines: {node: '>=0.10'}
 
+  lenis@1.0.45:
+    resolution: {integrity: sha512-wiaYRxr7rK1rY+dhGdMLowV0rkjg+1B2nI50Igyu5USkjDY6lkBNCJi0mVaSL/X3ECyAm/oA0nsihq8ic3p9wg==}
+    peerDependencies:
+      react: '>=17.0.0'
+      react-dom: '>=17.0.0'
+    peerDependenciesMeta:
+      react:
+        optional: true
+      react-dom:
+        optional: true
+
   levn@0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -2023,6 +2049,10 @@ packages:
   locate-path@6.0.0:
     resolution: {integrity: sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==}
     engines: {node: '>=10'}
+
+  locomotive-scroll@5.0.0-beta.13:
+    resolution: {integrity: sha512-zA4E6jbakBVwakb8KzTF6kVhdql1HCZbWCY0BzZ2LNNm9G5uWlZc9+Q5Lcxl7DmygY+5Yt1EfT5p3l3JLG8RPg==}
+    engines: {node: '>=17'}
 
   lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
@@ -2692,6 +2722,9 @@ packages:
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
+
+  split-type@0.3.4:
+    resolution: {integrity: sha512-otEk9vnD8qwfLsk3Lx0gz+qRkNIJCx0mlyL47ImP/DjMuV39d75Lpfwjn9fHteDRz0aoOblSzQjSNT9+Sswxcg==}
 
   sprintf-js@1.0.3:
     resolution: {integrity: sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g==}
@@ -3465,6 +3498,8 @@ snapshots:
       '@babel/helper-string-parser': 7.24.7
       '@babel/helper-validator-identifier': 7.24.7
       to-fast-properties: 2.0.0
+
+  '@darkroom.engineering/tempus@0.0.46': {}
 
   '@emmetio/abbreviation@2.3.3':
     dependencies:
@@ -5073,6 +5108,8 @@ snapshots:
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
 
+  gsap@3.12.5: {}
+
   has-bigints@1.0.2: {}
 
   has-flag@3.0.0: {}
@@ -5411,6 +5448,11 @@ snapshots:
     dependencies:
       language-subtag-registry: 0.3.23
 
+  lenis@1.0.45:
+    dependencies:
+      '@darkroom.engineering/tempus': 0.0.46
+      clsx: 2.1.1
+
   levn@0.4.1:
     dependencies:
       prelude-ls: 1.2.1
@@ -5443,6 +5485,13 @@ snapshots:
   locate-path@6.0.0:
     dependencies:
       p-locate: 5.0.0
+
+  locomotive-scroll@5.0.0-beta.13:
+    dependencies:
+      lenis: 1.0.45
+    transitivePeerDependencies:
+      - react
+      - react-dom
 
   lodash.merge@4.6.2: {}
 
@@ -6371,6 +6420,8 @@ snapshots:
   source-map-js@1.2.0: {}
 
   space-separated-tokens@2.0.2: {}
+
+  split-type@0.3.4: {}
 
   sprintf-js@1.0.3: {}
 

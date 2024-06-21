@@ -2,7 +2,25 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="w-fit mx-auto mt-10">
+<script>
+  import gsap from "gsap";
+
+  document.addEventListener('DOMContentLoaded', () => {
+    gsap.from('#stack', {
+      y: '100%',
+      opacity: 0,
+      delay: 1,
+      duration: 1,
+      ease: 'power4.out',
+      stagger: 0.1,
+    });
+
+    // Remove the class that hides the content
+    document.querySelector('#stack')?.classList.remove('opacity-0');
+  });
+</script>
+
+<section class="w-fit mx-auto mt-10 opacity-0" id="stack">
   <h2
     class="w-fit mx-auto mb-4 font-semibold text-lg md:text-xl relative select-none"
   >
