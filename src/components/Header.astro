@@ -40,10 +40,8 @@
 <style>
   header {
     user-select: none;
-    background-color: #fff;
     font-size: 56px;
     letter-spacing: -0.109rem;
-    background-clip: text;
     text-align: center;
     font-weight: 700;
     line-height: 133%;
@@ -77,6 +75,9 @@
 
     .highlight::before {
       background: url(/brush.svg);
+      background-repeat: round;
+      background-size: cover;
+      filter: blur(0.1px);
       position: absolute;
       content: "";
       height: 100%;
