@@ -7,33 +7,35 @@
   import SplitType from 'split-type';
   import { CSSPlugin } from "gsap/CSSPlugin";
 
-  gsap.registerPlugin(CSSPlugin);
+  if (window.innerWidth > 768) {
+    gsap.registerPlugin(CSSPlugin);
 
-  document.addEventListener('DOMContentLoaded', () => {
-    new SplitType('#heading', { types: 'words' });
+    document.addEventListener('DOMContentLoaded', () => {
+      new SplitType('#heading', { types: 'words' });
 
-    document.querySelector(".frontend > div")?.classList.add("frontend");
+      document.querySelector(".frontend > div")?.classList.add("frontend");
 
-    gsap.fromTo('#heading .word',
-      { y: '100%', opacity: 0, filter: 'blur(10px)' },
-      { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power4.out', stagger: 0.1 }
-    ).then(() => {
-      document.querySelector(".highlight")?.classList.add("animate");
+      gsap.fromTo('#heading .word',
+        { y: '100%', opacity: 0, filter: 'blur(10px)' },
+        { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 0.7, ease: 'power4.out', stagger: 0.1 }
+      ).then(() => {
+        document.querySelector(".highlight")?.classList.add("animate");
+      });
+
+      // Remove the class that hides the content
+      document.getElementById('heading')?.classList.remove('md:[&>*]:opacity-0');
     });
-
-    // Remove the class that hides the content
-    document.getElementById('heading')?.classList.remove('[&>*]:opacity-0');
-  });
+  } else document.getElementById('heading')?.classList.remove('md:[&>*]:opacity-0');
 </script>
 
 <header
   id="heading"
-  class="pt-[50px] md:pt-[80px] flex flex-col gap-4 items-center justify-center [&>*]:opacity-0"
+  class="pt-[50px] md:pt-[80px] flex flex-col gap-4 items-center justify-center md:[&>*]:opacity-0"
 >
   <h1 class="md:text-4xl text-2xl transition-all ease">¡Hola! Soy</h1>
   <h2 class="md:text-6xl text-4xl text-nowrap">Bautista Igarzabal</h2>
   <h3 class="md:text-3xl text-xl">
-    <span class="highlight text-[#222630]">Desarrollador web,</span> especializado en el
+    <span class="highlight">Desarrollador web,</span> especializado en el
     <span>
       <span class="frontend">frontend</span>
       <span class="ml-[-3px] md:ml-[-5px]">.</span>
@@ -140,7 +142,7 @@
     }
 
     .highlight::before {
-      filter: brightness(0.8) blur(0.1px);
+      filter: brightness(0.8) blur(0.1px) invert(1) ;
     }
 
     header > h2 {
