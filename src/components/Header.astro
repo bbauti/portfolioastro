@@ -17,7 +17,7 @@
 
       gsap.fromTo('#heading .word',
         { y: '100%', opacity: 0, filter: 'blur(10px)' },
-        { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 0.85, ease: 'power4.out', stagger: 0.1 }
+        { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 0.95, ease: 'power4.out', stagger: 0.1 }
       ).then(() => {
         document.querySelector(".highlight")?.classList.add("animate");
       });
@@ -145,11 +145,11 @@
       filter: brightness(0.8) blur(0.1px) invert(1) ;
     }
 
-    header > h2 {
+    header h2 {
       -webkit-text-stroke-color: #ededed !important;
     }
 
-    header > h2:hover {
+    header h2:hover {
       color: #ededed !important;
       text-shadow: 0 0 20px hsla(0, 0%, 89%, 0.353);
     }
