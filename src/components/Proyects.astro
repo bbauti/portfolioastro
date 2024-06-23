@@ -20,6 +20,7 @@ let proyects = [
     img: '/src/assets/proyects/dashboard.webp',
     link: "https://dash.bbauti.ar/",
     status: "done",
+    color: "rgb(137 0 249 / 30%)",
     lenguagesColor: ["HTML", "CSS", "SCSS", "JavaScript", "Svelte", "Vite"],
     lenguages: ["HTML", "CSS", "SCSS", "JS", "Svelte", "Vite"],
   },
@@ -30,6 +31,7 @@ let proyects = [
     img: '/src/assets/proyects/inventoryapp.webp',
     link: "",
     status: "wip",
+    color: "rgb(87 211 176 / 43%)",
     lenguagesColor: [
       "Python",
       "Python",
@@ -89,7 +91,10 @@ const checkColor = (leng: keyof Colores): string => {
   >
     {
       proyects.map(proyect => (
-        <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px] overflow-hidden'>
+        <article
+          class="transition-all ease-in duration-300 w-fit h-fit rounded-[30px] overflow-hidden proyect-hover"
+          style={`--shadow-color: ${proyect.color}`}
+        >
           <section class="flex gap-4 shadow-project-outline dark:shadow-project-outline-dark bg-[#f5f5f5] dark:bg-[#121212] flex-col md:flex-row justify-between max-w-[1000px] relative mx-auto p-[0.8rem] rounded-[30px] w-full h-full ">
             <div class="p-[1rem] md:max-w-[34ch] w-full flex flex-col gap-2">
               <header class="text-xl font-[600] flex items-center gap-2 select-none">
@@ -153,3 +158,9 @@ const checkColor = (leng: keyof Colores): string => {
     }
   </div>
 </section>
+
+<style>
+  .proyect-hover:hover {
+    box-shadow: 0 0 200px var(--shadow-color)
+  }
+</style>
