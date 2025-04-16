@@ -11,6 +11,19 @@ import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 ---
 
+<script>
+  import gsap from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth > 768) {
+      gsap.fromTo('#projects-section',
+        { y: '20%', opacity: 0, filter: 'blur(20px)' },
+        { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 1.5, delay: .5, ease: 'power4.out'}
+      )
+    }
+  });
+</script>
+
 <html lang="en" transition:animate="slide">
   <head>
     <SEO
@@ -40,6 +53,7 @@ import Footer from "../components/Footer.astro";
           },
           { name: "twitter:title", content: "Bautista Igarzabal" },
           { name: "twitter:description", content: "Portfolio" },
+          { name: "theme-color", content: "#ffffff" },
         ],
       }}
     />
@@ -93,11 +107,13 @@ import Footer from "../components/Footer.astro";
         font-family: 'Inter';
         src: url('/fonts/InterVariable.ttf') format("truetype-variations");
         font-weight: 1 999;
+        font-display: swap;
       }
 
       @font-face {
         font-family: 'Eudoxus Sans';
         src: url('/fonts/EudoxusSans-Bold.woff2') format('woff2');
+        font-display: swap;
         font-weight: 700;
         font-style: normal;
       }

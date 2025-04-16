@@ -2,7 +2,20 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="down-arrow pointer hidden sm:block">
+<script>
+  import gsap from "gsap";
+
+  document.addEventListener("DOMContentLoaded", () => {
+    if (window.innerWidth > 768) {
+      gsap.fromTo('#down-arrow',
+        { y: '20%', opacity: 0, },
+        { y: '0%', opacity: 1, duration: .5, delay: 1.5, ease: 'power4.out'}
+      )
+    }
+  });
+</script>
+
+<div class="down-arrow pointer hidden sm:block" id="down-arrow">
   <a href="#cards" aria-label="Go to cards">
     <Icon name="mdi:arrow-down-box" />
   </a>
@@ -15,6 +28,7 @@ import { Icon } from "astro-icon/components";
     font-size: 2rem;
     animation: bounce 2s infinite;
     transition: all 0.2s ease;
+    opacity: 0;
   }
 
   .down-arrow:hover {
