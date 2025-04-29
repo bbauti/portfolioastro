@@ -1,0 +1,45 @@
+<div aria-hidden="true" class="blur-container bottom-blur">
+  <div class="blur-layer z-1" style="--blur: 0.078125px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 0) 37.5%);"></div>
+  <div class="blur-layer z-2" style="--blur: 0.15625px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 12.5%, rgba(0, 0, 0, 1) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 0) 50%);"></div>
+  <div class="blur-layer z-3" style="--blur: 0.3125px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 25%, rgba(0, 0, 0, 1) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 0) 62.5%);"></div>
+  <div class="blur-layer z-4" style="--blur: 0.625px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 37.5%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 0) 75%);"></div>
+  <div class="blur-layer z-5" style="--blur: 1.25px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 1) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 0) 87.5%);"></div>
+  <div class="blur-layer z-6" style="--blur: 2.5px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 62.5%, rgba(0, 0, 0, 1) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 0) 100%);"></div>
+  <div class="blur-layer z-7" style="--blur: 5px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 75%, rgba(0, 0, 0, 1) 87.5%, rgba(0, 0, 0, 1) 100%);"></div>
+  <div class="blur-layer z-8" style="--blur: 10px; --mask: linear-gradient(to bottom, rgba(0, 0, 0, 0) 87.5%, rgba(0, 0, 0, 1) 100%);"></div>
+</div>
+
+<style>
+  .blur-container {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    z-index: 50;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .bottom-blur {
+    bottom: 0;
+  }
+
+  .blur-layer {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(var(--blur));
+    -webkit-backdrop-filter: blur(var(--blur));
+    mask-image: var(--mask);
+    -webkit-mask-image: var(--mask);
+    border-radius: 0;
+  }
+
+  .z-1 { z-index: 1; }
+  .z-2 { z-index: 2; }
+  .z-3 { z-index: 3; }
+  .z-4 { z-index: 4; }
+  .z-5 { z-index: 5; }
+  .z-6 { z-index: 6; }
+  .z-7 { z-index: 7; }
+  .z-8 { z-index: 8; }
+</style>
