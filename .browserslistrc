@@ -1,0 +1,7 @@
+# Browsers que soportan ES2020 nativamente
+defaults and supports es6-module and supports es6-module-dynamic-import
+not IE 11
+not Chrome < 80
+not Firefox < 75
+not Safari < 13.1
+not Edge < 80

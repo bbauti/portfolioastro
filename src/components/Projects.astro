@@ -167,6 +167,11 @@ const checkColor = (lang: keyof Colores): string => {
                 src={images[project.img]()}
                 alt={project.name[0]}
                 class="z-50 relative rounded-[25px] border border-gray-300 dark:border-gray-600 p-[0.1rem] max-h-full ml-auto"
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, 400px"
+                widths={[200, 400, 600]}
+                format="webp"
               />
             </figure>
           </section>

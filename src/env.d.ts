@@ -1,5 +1,4 @@
 /// <reference types="astro/client" />
-/// <reference types="astro-integration-lottie/env" />
 type KVNamespace = import("@cloudflare/workers-types").KVNamespace;
 type ENV = {
   lastlocation: KVNamespace;

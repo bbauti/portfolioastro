@@ -1,0 +1,36 @@
+/* Critical CSS for immediate LCP optimization */
+
+/* Preload key styles for h2 heading */
+#heading h2 {
+  font-family: 'Eudoxus Sans', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+  color: transparent;
+  -webkit-text-stroke: 2px #222630;
+  transform: skew(-2deg);
+  font-size: clamp(2.25rem, 8vw, 3.75rem);
+  line-height: 1;
+  margin: 0;
+  text-wrap: nowrap;
+  will-change: transform;
+  font-display: block;
+}
+
+/* Ensure immediate visibility of LCP element */
+@media (min-width: 769px) {
+  #heading h2 {
+    /* Keep h2 visible while other elements animate */
+    opacity: 1 !important;
+  }
+}
+
+/* Dark mode critical styles */
+@media (prefers-color-scheme: dark) {
+  #heading h2 {
+    -webkit-text-stroke-color: #ededed;
+  }
+}
+
+/* Fallback font for faster initial render */
+.font-fallback {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}

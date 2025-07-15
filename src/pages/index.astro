@@ -13,20 +13,68 @@ import Blur from "../components/Blur.astro";
 ---
 
 <script>
-  import gsap from "gsap";
+  import { loadGSAP, createObserver } from '../utils/gsap-loader.js';
 
-  document.addEventListener("DOMContentLoaded", () => {
-    if (window.innerWidth > 768) {
-      gsap.fromTo('#projects-section',
-        { y: '20%', opacity: 0, filter: 'blur(20px)' },
-        { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 1.5, delay: .5, ease: 'power4.out'}
-      )
+  document.addEventListener("DOMContentLoaded", async () => {
+    const projectsSection = document.getElementById('projects-section');
+    if (!projectsSection) return;
+
+    // Mostrar inmediatamente en móvil
+    if (window.innerWidth <= 768) {
+      projectsSection.style.opacity = '1';
+      return;
     }
+
+    // Cargar GSAP solo en desktop con Intersection Observer
+    const gsapModules = await loadGSAP();
+    if (!gsapModules) {
+      projectsSection.style.opacity = '1';
+      return;
+    }
+
+    const { gsap } = gsapModules;
+
+    const observer = createObserver((entries: any) => {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          gsap.fromTo('#projects-section',
+            { y: '20%', opacity: 0, filter: 'blur(20px)' },
+            { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power4.out'}
+          );
+          observer.unobserve(entry.target);
+        }
+      });
+    });
+
+    observer.observe(projectsSection);
   });
 </script>
 
 <html lang="en" transition:animate="slide">
   <head>
+    <meta charset="utf-8" />
+    <style>
+      /* Critical CSS inline for immediate LCP */
+      #heading h2 {
+        font-family: 'Eudoxus Sans', system-ui, -apple-system, sans-serif !important;
+        font-weight: 700;
+        color: transparent;
+        -webkit-text-stroke: 2px #222630;
+        transform: skew(-2deg);
+        font-size: clamp(2.25rem, 8vw, 3.75rem);
+        line-height: 1;
+        margin: 0;
+        text-wrap: nowrap;
+        will-change: transform;
+        font-display: block;
+      }
+      @media (min-width: 769px) {
+        #heading h2 { opacity: 1 !important; }
+      }
+      @media (prefers-color-scheme: dark) {
+        #heading h2 { -webkit-text-stroke-color: #ededed; }
+      }
+    </style>
     <SEO
       title="Bautista Igarzabal"
       description="Portfolio personal"
@@ -45,6 +93,9 @@ import Blur from "../components/Blur.astro";
         link: [
           { rel: "icon", href: "/favicon.ico" },
           { rel: "sitemap", href: "/sitemap-index.xml" },
+          { rel: "preload", href: "/fonts/EudoxusSans-Bold.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
+          { rel: "preload", href: "/fonts/InterVariable.ttf", as: "font", type: "font/ttf", crossorigin: "anonymous" },
+          { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
         ],
         // extending the default meta tags
         meta: [
@@ -58,7 +109,6 @@ import Blur from "../components/Blur.astro";
         ],
       }}
     />
-    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions />
@@ -102,20 +152,20 @@ import Blur from "../components/Blur.astro";
 
     <style>
       * {
-        transition: all .1s ease-in-out;
+        transition: opacity .1s ease-in-out, transform .1s ease-in-out;
       }
 
       @font-face {
         font-family: 'Inter';
         src: url('/fonts/InterVariable.ttf') format("truetype-variations");
         font-weight: 1 999;
-        font-display: swap;
+        font-display: block;
       }
 
       @font-face {
         font-family: 'Eudoxus Sans';
         src: url('/fonts/EudoxusSans-Bold.woff2') format('woff2');
-        font-display: swap;
+        font-display: block;
         font-weight: 700;
         font-style: normal;
       }
@@ -124,6 +174,7 @@ import Blur from "../components/Blur.astro";
         font-family: 'Geist Mono';
         src: url('/fonts/GeistMonoVF.ttf') format("truetype-variations");
         font-weight: 1 999;
+        font-display: swap;
       }
 
       body {
@@ -137,17 +188,18 @@ import Blur from "../components/Blur.astro";
       }
 
       #noise {
-        animation: grain 8s steps(10) infinite;
+        animation: grain 12s steps(8) infinite;
         background-image: url(/noise.webp);
         content: "";
-        height: 300%;
-        left: -50%;
-        opacity: 0.1;
+        height: 200%;
+        left: -25%;
+        opacity: 0.08;
         position: fixed;
-        top: -110%;
-        width: 300%;
+        top: -50%;
+        width: 200%;
         pointer-events: none;
         z-index: 30;
+        will-change: transform;
       }
 
       html {
@@ -275,6 +327,8 @@ import Blur from "../components/Blur.astro";
         background-position: 50% 50%;
         animation: god-rays var(--duration) cubic-bezier(0.15, 0, 0.85, 1)
           infinite alternate;
+        will-change: transform;
+        transform: translateZ(0);
       }
 
       @keyframes god-rays {

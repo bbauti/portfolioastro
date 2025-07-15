@@ -3,23 +3,45 @@ import { Icon } from "astro-icon/components";
 ---
 
 <script>
-  import gsap from "gsap";
+  import { loadGSAP, createObserver } from '../utils/gsap-loader.js';
 
-  if (window.innerWidth > 768) {
-    document.addEventListener('DOMContentLoaded', () => {
-      gsap.from('#stack', {
-        y: '100%',
-        opacity: 0,
-        delay: .5,
-        duration: 1,
-        ease: 'power4.out',
-        stagger: 0.1,
+  document.addEventListener('DOMContentLoaded', async () => {
+    const stack = document.getElementById('stack');
+    if (!stack) return;
+
+    // Mostrar inmediatamente en móvil
+    if (window.innerWidth <= 768) {
+      stack.classList.remove('md:opacity-0');
+      return;
+    }
+
+    // Cargar GSAP con Intersection Observer
+    const gsapModules = await loadGSAP();
+    if (!gsapModules) {
+      stack.classList.remove('md:opacity-0');
+      return;
+    }
+
+    const { gsap } = gsapModules;
+
+    const observer = createObserver((entries: any) => {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          gsap.from('#stack', {
+            y: '100%',
+            opacity: 0,
+            duration: 1,
+            ease: 'power4.out',
+            stagger: 0.1,
+          });
+          stack.classList.remove('md:opacity-0');
+          observer.unobserve(entry.target);
+        }
       });
-
-      // Remove the class that hides the content
-      document.querySelector('#stack')?.classList.remove('md:opacity-0');
     });
-  } else document.querySelector('#stack')?.classList.remove('md:opacity-0');
+
+    observer.observe(stack);
+  });
 </script>
 
 <section class="w-fit mx-auto mt-10 md:opacity-0" id="stack">
@@ -113,6 +135,7 @@ import { Icon } from "astro-icon/components";
     transform: scale(1.2);
     filter: grayscale(0) brightness(1);
     margin: 0 0.2rem;
+    will-change: transform, filter;
   }
 
   /* Tooltips */
@@ -139,12 +162,17 @@ import { Icon } from "astro-icon/components";
     font-size: 0.8rem;
     white-space: nowrap;
     background-color: #0f0f0f2a;
-    backdrop-filter: blur(10px);
     border: 1px solid #0000001f;
     border-radius: 5px;
     opacity: 0;
     z-index: 99999;
     visibility: hidden;
+  }
+
+  @supports (backdrop-filter: blur(10px)) {
+    [data-tooltip]:after {
+      backdrop-filter: blur(10px);
+    }
   }
 
   [data-tooltip] {

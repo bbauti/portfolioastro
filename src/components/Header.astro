@@ -3,29 +3,51 @@
 ---
 
 <script>
-  import gsap from "gsap";
-  import SplitType from 'split-type';
-  import { CSSPlugin } from "gsap/CSSPlugin";
+  import { loadGSAP, createObserver } from '../utils/gsap-loader.js';
 
-  if (window.innerWidth > 768) {
-    gsap.registerPlugin(CSSPlugin);
+  document.addEventListener('DOMContentLoaded', async () => {
+    const heading = document.getElementById('heading');
+    if (!heading) return;
 
-    document.addEventListener('DOMContentLoaded', () => {
-      new SplitType('#heading', { types: 'words' });
+    // Mostrar contenido inmediatamente en móvil
+    if (window.innerWidth <= 768) {
+      heading.classList.remove('md:[&>*]:opacity-0');
+      return;
+    }
 
-      document.querySelector(".frontend > div")?.classList.add("frontend");
+    // Cargar GSAP solo en desktop
+    const gsapModules = await loadGSAP();
+    if (!gsapModules) {
+      heading.classList.remove('md:[&>*]:opacity-0');
+      return;
+    }
 
-      gsap.fromTo('#heading .word',
-        { y: '100%', opacity: 0, filter: 'blur(10px)' },
-        { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 0.95, ease: 'power4.out', stagger: 0.1 }
-      ).then(() => {
-        document.querySelector(".highlight")?.classList.add("animate");
+    const { gsap, SplitType } = gsapModules;
+
+    // Intersection Observer para animación lazy
+    const observer = createObserver((entries: any) => {
+      entries.forEach((entry: any) => {
+        if (entry.isIntersecting) {
+          // Animar todo el heading como antes
+          new SplitType('#heading', { types: 'words' });
+
+          document.querySelector(".frontend > div")?.classList.add("frontend");
+
+          gsap.fromTo('#heading .word',
+            { y: '100%', opacity: 0, filter: 'blur(10px)' },
+            { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 0.95, ease: 'power4.out', stagger: 0.1 }
+          ).then(() => {
+            document.querySelector(".highlight")?.classList.add("animate");
+          });
+
+          heading.classList.remove('md:[&>*]:opacity-0');
+          observer.unobserve(entry.target);
+        }
       });
-
-      // Remove the class that hides the content
-      document.getElementById('heading')?.classList.remove('md:[&>*]:opacity-0');
     });
-  } else document.getElementById('heading')?.classList.remove('md:[&>*]:opacity-0');
+
+    observer.observe(heading);
+  });
 </script>
 
 <header
