@@ -139,11 +139,13 @@ import Blur from "../components/Blur.astro";
           </div>
         </div>
       </div>
-      <img
-        class="absolute top-0 left-0 w-full opacity-[.3] grayscale"
-        src="/public/background.webp" alt="background image"
-        style="mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);"
-      >
+      <div class="overflow-hidden">
+        <img
+          class="absolute top-0 left-0 w-full opacity-[.25] grayscale w-[150vw] h-[80vh] object-cover md:w-full md:h-auto"
+          src="/public/background.webp" alt="background image"
+          style="mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);"
+        >
+      </div>
       <section class="relative pb-[4rem] lg:pb-[2rem] p-[2rem]">
         <Header />
         <Stack />
