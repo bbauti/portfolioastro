@@ -16,9 +16,10 @@ let projects = [
   {
     name: ["Iberojet"],
     desc: "Lideré la reconstrucción del frontend de la plataforma de viajes de Iberojet utilizando Vue 3 y Nuxt 3 con TypeScript. El proyecto incluyó un panel de control de operaciones de vuelo en tiempo real, un CMS multilingüe y características complejas como selectores de asientos y procesamiento de pagos. Optimicé el rendimiento e implementé una arquitectura multidominio que atiende a varios mercados internacionales, demostrando mi capacidad para entregar soluciones frontend complejas a gran escala.",
+    year: '2024 - Now',
     source: "",
     img: '/src/assets/projects/iberojet.webp',
-    link: "https://mexico.iberojet.com/",
+    link: "https://iberojet.com/",
     status: "done",
     languagesColor: ["Vue", "TypeScript", "JavaScript", "HTML", "CSS", "Vue"],
     languages: ["Vue", "TS", "JS", "HTML", "CSS", "Nuxt"],
@@ -26,6 +27,7 @@ let projects = [
     {
     name: ["Planb"],
     desc: "Lideré el desarrollo del frontend de PlanB, plataforma de reserva de experiencias y estancias, utilizando Vue 3 y Nuxt 3 con TypeScript. El proyecto incluyó un CMS multilingüe, un sistema de reservas adaptativo con calendario interactivo y personalización de paquetes. Optimicé la carga inicial mediante lazy loading y pre‑renderizado, demostrando mi capacidad para entregar interfaces frontend avanzadas y de alto rendimiento.",
+    year: '2024 - Now',
     source: "",
     img: '/src/assets/projects/planb.webp',
     link: "https://planb.es/",
@@ -36,6 +38,7 @@ let projects = [
   {
     name: ["Punto Bazar"],
     desc: "Aplicación de gestión de inventario para la diplomatura de programación de la UTN. La aplicación permite gestionar stock, crear productos, manejar un carrito de compras con cálculos de precios, impuestos y envíos, analizar transacciones, gestionar impuestos, y administrar múltiples cuentas. Cuenta con notificaciones de bajo stock y es de código abierto.",
+    year: '2023',
     source: "https://github.com/bbauti/dashboard",
     img: '/src/assets/projects/dashboard.webp',
     link: "https://dash.bbauti.ar/",
@@ -46,6 +49,7 @@ let projects = [
   {
     name: ["Inventory App", "1rem"],
     desc: "Aplicación web para el control del inventario de una institución escolar. Fui responsable del frontend, la documentación y las tareas de DevOps. La aplicación, implementada en un servidor propio con CI/CD para actualizaciones automáticas, permitía a los maestros controlar el inventario escolar y localizar objetos en diferentes salones. Todo se creó desde cero, incluyendo correos y autenticación. Se uso la metodologia SCRUM.",
+    year: '2022',
     source: "https://bitbucket.org/arrudeboy/inventory/src",
     img: '/src/assets/projects/inventoryapp.webp',
     link: "",
@@ -112,7 +116,7 @@ const checkColor = (lang: keyof Colores): string => {
         <article class='hover:shadow-xl transition-all ease-in-out w-fit h-fit rounded-[30px] overflow-hidden'>
           <section class="flex gap-4 shadow-project-outline dark:shadow-project-outline-dark bg-[#f5f5f5] dark:bg-[#121212] flex-col md:flex-row justify-between max-w-[1000px] relative mx-auto p-[0.8rem] rounded-[30px] w-full h-full ">
             <div class="p-[1rem] md:max-w-[34ch] w-full flex flex-col gap-2">
-              <header class="text-xl font-[600] flex items-center gap-2 select-none">
+              <header class="text-xl font-[600] flex items-center gap-2 select-none flex gap-2 items-center">
                 <p class="ptitle">{project.name[0]}</p>
                 <div class="flex items-center gap-2">
                   {project.source &&
@@ -139,6 +143,7 @@ const checkColor = (lang: keyof Colores): string => {
                     </div>
                   ) : null}
                 </div>
+                <p class="font-semibold text-xs ml-auto rounded-md px-2 py-1 bg-black/10 opacity-50">{project.year}</p>
               </header>
               <div class="flex flex-wrap gap-1 select-none">
                 {project.languages.map((lang, index) => (
@@ -169,8 +174,6 @@ const checkColor = (lang: keyof Colores): string => {
                 class="z-50 relative rounded-[25px] border border-gray-300 dark:border-gray-600 p-[0.1rem] max-h-full ml-auto"
                 loading="lazy"
                 decoding="async"
-                sizes="(max-width: 768px) 100vw, 400px"
-                widths={[200, 400, 600]}
                 format="webp"
               />
             </figure>
