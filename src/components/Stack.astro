@@ -3,22 +3,22 @@ import { Icon } from "astro-icon/components";
 ---
 
 <script>
-  import { loadGSAP, createObserver } from '../utils/gsap-loader.js';
+  import { loadGSAP, createObserver } from "../utils/gsap-loader.js";
 
-  document.addEventListener('DOMContentLoaded', async () => {
-    const stack = document.getElementById('stack');
+  document.addEventListener("DOMContentLoaded", async () => {
+    const stack = document.getElementById("stack");
     if (!stack) return;
 
     // Mostrar inmediatamente en móvil
     if (window.innerWidth <= 768) {
-      stack.classList.remove('md:opacity-0');
+      stack.classList.remove("md:opacity-0");
       return;
     }
 
     // Cargar GSAP con Intersection Observer
     const gsapModules = await loadGSAP();
     if (!gsapModules) {
-      stack.classList.remove('md:opacity-0');
+      stack.classList.remove("md:opacity-0");
       return;
     }
 
@@ -27,14 +27,14 @@ import { Icon } from "astro-icon/components";
     const observer = createObserver((entries: any) => {
       entries.forEach((entry: any) => {
         if (entry.isIntersecting) {
-          gsap.from('#stack', {
-            y: '100%',
+          gsap.from("#stack", {
+            y: "100%",
             opacity: 0,
             duration: 1,
-            ease: 'power4.out',
+            ease: "power4.out",
             stagger: 0.1,
           });
-          stack.classList.remove('md:opacity-0');
+          stack.classList.remove("md:opacity-0");
           observer.unobserve(entry.target);
         }
       });
@@ -44,12 +44,16 @@ import { Icon } from "astro-icon/components";
   });
 </script>
 
-<section class="mx-auto mt-10 w-fit md:opacity-0" id="stack" aria-labelledby="stack-heading">
+<section
+  class="mx-auto mt-10 w-fit md:opacity-0"
+  id="stack"
+  aria-labelledby="stack-heading"
+>
   <h2
     id="stack-heading"
     class="relative mx-auto mb-4 w-fit text-lg font-semibold select-none md:text-xl"
   >
-    <span class="absolute top-[-1px] right-[-15px] rotate-[80deg]">
+    <span class="absolute -top-px -right-3.75 rotate-80">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="svg-icon"
@@ -63,46 +67,41 @@ import { Icon } from "astro-icon/components";
     </span>
     Tech stack
   </h2>
-  <div class="flex flex-wrap items-center justify-center gap-4" role="list" aria-label="Tecnologias">
-    <!-- <Icon name="devicon:javascript"></Icon> -->
-    <div class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10" data-tooltip="Javascript">
+  <div
+    class="flex flex-wrap items-center justify-center gap-4"
+    role="list"
+    aria-label="Tecnologias"
+  >
+    <div
+      class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10"
+      data-tooltip="Runtime"
+    >
       <Icon name="mdi:nodejs" />
       <Icon name="devicon:typescript" />
+      <Icon name="devicon:bun" />
+    </div>
+
+    <div
+      class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10"
+      data-tooltip="Frameworks"
+    >
       <Icon name="devicon:vuejs" />
       <Icon name="devicon:nuxtjs" />
+      <Icon name="devicon:astro" />
       <Icon name="devicon:vitejs" />
-      <!-- <Icon icon='devicon:vuejs'></Icon>
-            <Icon icon='devicon:nuxt-icon'></Icon> -->
     </div>
 
-    <div class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10" data-tooltip="PHP">
-      <Icon name="devicon:php" />
-      <Icon name="devicon:laravel" />
+    <div class="icon" data-tooltip="Tailwind CSS">
+      <Icon name="devicon:tailwindcss" />
     </div>
-
-    <div class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10" data-tooltip="SQL">
-      <Icon name="devicon:microsoftsqlserver" />
-      <Icon name="devicon:postgresql" />
-    </div>
-
-    <!--
-    <div class="iconsection" data-tooltip="CSS">
-      <Icon name="devicon:file-type-scss" />
-      <Icon name="devicon:bulma" />
-    </div>
-    -->
-
     <div class="icon" data-tooltip="Docker">
       <Icon name="devicon:docker" />
-    </div>
-    <div class="icon" data-tooltip="Bash">
-      <Icon name="devicon:bash" />
     </div>
     <div class="icon" data-tooltip="Git">
       <Icon name="devicon:git" />
     </div>
-    <div class="icon" data-tooltip="Atlassian">
-      <Icon name="mdi:atlassian" />
+    <div class="icon" data-tooltip="Bash">
+      <Icon name="devicon:bash" />
     </div>
   </div>
 </section>

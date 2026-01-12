@@ -13,7 +13,7 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
 
 const typedColores = colores as Colores;
 
-let projects = [
+const projects = [
   {
     name: ["Iberojet"],
     desc: "Lideré la reconstrucción del frontend de la plataforma de viajes de Iberojet utilizando Vue 3 y Nuxt 3 con TypeScript. El proyecto incluyó un panel de control de operaciones de vuelo en tiempo real, un CMS multilingüe y características complejas como selectores de asientos y procesamiento de pagos. Optimicé el rendimiento e implementé una arquitectura multidominio que atiende a varios mercados internacionales, demostrando mi capacidad para entregar soluciones frontend complejas a gran escala.",
@@ -96,6 +96,33 @@ let projects = [
     languagesColor: ["HTML", "CSSimagePath", "JavaScript"],
     languages: ["HTML", "CSS", "JS"],
   }, */,
+];
+
+const sideProjects = [
+  {
+    name: ["Impostor"],
+    desc: "Juego multijugador de deducción social en tiempo real",
+    icon: "https://fetchfavicon.com/i/impostor.bbauti.ar",
+    source: "https://github.com/bbauti/impostor",
+    link: "https://impostor.bauti.ar/",
+    status: "done",
+  },
+  {
+    name: ["AtlassianBot"],
+    desc: "CLI para generar reportes diarios de Bitbucket y Jira",
+    icon: "",
+    source: "https://github.com/bbauti/atlassian-bot",
+    link: "",
+    status: "done",
+  },
+  {
+    name: ["QPC-Tui"],
+    desc: "Lector de noticias de Que Pensas Chacabuco desde una interfaz de terminal",
+    icon: "",
+    source: "https://github.com/bbauti/qpc-tui",
+    link: "",
+    status: "wip",
+  },
 ];
 
 const checkColor = (lang: keyof Colores): string => {
@@ -209,6 +236,69 @@ const checkColor = (lang: keyof Colores): string => {
               />
             </figure>
           </div>
+        </article>
+      ))
+    }
+  </div>
+  <h3 class="mt-12 mb-4 text-center font-semibold md:text-lg">Side Projects</h3>
+  <div
+    id="side-project-cards"
+    class="mx-auto grid max-w-220 grid-cols-3 gap-4"
+    role="list"
+  >
+    {
+      sideProjects.map((project) => (
+        <article class="w-full rounded-lg border border-gray-500/20 p-4 shadow transition-all ease-in-out hover:shadow-lg">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              {project.icon && (
+                <img
+                  src={project.icon}
+                  alt={project.name[0]}
+                  class="h-6 w-6 rounded-md"
+                />
+              )}
+              <p class="text-lg font-semibold">{project.name[0]}</p>
+            </div>
+            <div class="flex items-center gap-2">
+              {project.source && (
+                <div class="icon-card rounded-md bg-[#AFAFAF]/10 p-1 transition-all ease-in-out hover:-translate-y-[1px] hover:bg-[#AFAFAF]/40 dark:bg-[#4A4A4A]/10 dark:hover:bg-[#4A4A4A]/40">
+                  <a
+                    href={project.source}
+                    class="git"
+                    aria-label={`Ver codigo fuente de ${project.name[0]}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon name="mdi:git" />
+                  </a>
+                </div>
+              )}
+              {project.status === "done" && project.link && (
+                <div class="icon-card icon-card-text hover:color-[#AFAFAF] dark:hover:color-[#4A4A4A] rounded-md bg-[#AFAFAF]/10 p-1 transition-all ease-in-out hover:-translate-y-[1px] dark:bg-[#4A4A4A]/10">
+                  <a
+                    href={project.link}
+                    aria-label={`Visitar ${project.name[0]}`}
+                    class="done"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Icon name="mdi:external-link" />
+                  </a>
+                </div>
+              )}
+              {project.status === "wip" && (
+                <div
+                  class="icon-card disabled rounded-md bg-[#AFAFAF]/10 p-1 dark:bg-[#4A4A4A]/10"
+                  role="img"
+                  aria-label="Proyecto en desarrollo"
+                >
+                  <Icon name="mdi:construction" aria-hidden="true" />
+                </div>
+              )}
+            </div>
+          </div>
+          <p class="text-sm">{project.desc}</p>
         </article>
       ))
     }
