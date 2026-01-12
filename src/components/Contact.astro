@@ -36,25 +36,25 @@ import { Icon } from "astro-icon/components";
   });
 </script>
 
-<section class="flex justify-center w-full gap-12 flex-col md:flex-row items-center my-24" aria-labelledby="contact-heading">
+<section class="my-24 flex w-full flex-col items-center justify-center gap-12 md:flex-row" aria-labelledby="contact-heading">
   <section
-    class="select-none border border-dashed border-gray-500/40 rounded-[10px] w-fit rotate-[-2deg] shadow-md overflow-hidden mx-auto md:m-0"
+    class="mx-auto w-fit rotate-[-2deg] overflow-hidden rounded-[10px] border border-dashed border-gray-500/40 shadow-md select-none md:m-0"
   >
     <div
-      class="border-0 border-b border-b-gray-500/40 border-dashed relative p-[.5rem]"
+      class="relative border-0 border-b border-dashed border-b-gray-500/40 p-[.5rem]"
     >
       <!-- TODO: Vertical centering -->
       <div
-        class="absolute flex gap-1 items-center left-[.5rem] text-[.8rem] leading-[.5rem] h-full top-0"
+        class="absolute top-0 left-[.5rem] flex h-full items-center gap-1 text-[.8rem] leading-[.5rem]"
       >
         <p class="text-orange-400">●</p>
         <p class="text-yellow-300">●</p>
         <p class="text-green-500">●</p>
       </div>
-      <p class="mx-auto w-fit text-gray-500 text-sm font-['Geist Mono']">about_bbauti.txt</p>
+      <p class="font-['Geist Mono'] mx-auto w-fit text-sm text-gray-500">about_bbauti.txt</p>
     </div>
     <pre
-      class="p-[1rem] w-fit m-0 [counter-reset:line] tracking-tight leading-[1.35rem] whitespace-pre-wrap font-['Geist Mono']">
+      class="font-['Geist Mono'] m-0 w-fit p-[1rem] leading-[1.35rem] tracking-tight whitespace-pre-wrap [counter-reset:line]">
       Con más de cinco años de experiencia en desarrollo
       web y mas de dos años dedicándome profesionalmente
       a lo que me apasiona, disfruto transformar visiones
@@ -65,12 +65,12 @@ import { Icon } from "astro-icon/components";
       abiertamente ideas y preguntas.
     </pre>
   </section>
-  <div class="max-w-[20ch] w-full my-auto">
+  <div class="my-auto w-full max-w-[20ch]">
     <h2 id="contact-heading" class="text-2xl font-bold">
       Listo para iniciar tu proyecto?
-      <a href="mailto:bautistaigarzabal11@gmail.com" id="contact" class="underline hover:text-violet-500 transition-all ease flex items-center" aria-label="Enviar email para contacto">
+      <a href="mailto:bautistaigarzabal11@gmail.com" id="contact" class="ease flex items-center underline transition-all hover:text-violet-500" aria-label="Enviar email para contacto">
         Hablemos!
-        <span id="icon" class="opacity-0 inline-block text-violet-500">
+        <span id="icon" class="inline-block text-violet-500 opacity-0">
           <Icon name="mdi:email" class="h-6 w-6" />
         </span>
       </a>

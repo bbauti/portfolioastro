@@ -59,17 +59,15 @@ export default [
       "better-tailwindcss": eslintPluginBetterTailwindcss,
     },
     rules: {
+      ...eslintPluginBetterTailwindcss.configs["recommended-warn"].rules,
       "@typescript-eslint/no-unused-vars": [
         "warn",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
       ],
       "@typescript-eslint/ban-ts-comment": "off",
       "@typescript-eslint/no-explicit-any": "off",
-      "better-tailwindcss/enforce-consistent-line-wrapping": [
-        "warn",
-        { printWidth: Infinity },
-      ],
-      ...eslintPluginBetterTailwindcss.configs["recommended-warn"].rules,
+      "better-tailwindcss/enforce-consistent-line-wrapping": "off",
+      "better-tailwindcss/no-unregistered-classes": "off"
     },
     settings: {
       "better-tailwindcss": {

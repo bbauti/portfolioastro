@@ -5,7 +5,7 @@
 <label class="swap swap-rotate">
   <input type="checkbox" id="theme" />
   <svg
-    class="swap-on fill-[#000000b8] dark:fill-[#ffffffb8] w-6 h-6"
+    class="swap-on h-6 w-6 fill-[#000000b8] dark:fill-[#ffffffb8]"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
   >
@@ -15,7 +15,7 @@
     </path>
   </svg>
   <svg
-    class="swap-off fill-[#000000b8] dark:fill-[#ffffffb8] w-6 h-6"
+    class="swap-off h-6 w-6 fill-[#000000b8] dark:fill-[#ffffffb8]"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
   >
@@ -55,8 +55,7 @@
   document.getElementById("theme").textContent =
     theme === "dark" ? "oscuro" : "claro";
 
-  const handleToggleClick = (e) => {
-    console.log(e.target.checked);
+  const handleToggleClick = () => {
     const element = document.documentElement;
     element.classList.toggle("dark");
 

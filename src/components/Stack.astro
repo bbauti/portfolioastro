@@ -44,10 +44,10 @@ import { Icon } from "astro-icon/components";
   });
 </script>
 
-<section class="w-fit mx-auto mt-10 md:opacity-0" id="stack" aria-labelledby="stack-heading">
+<section class="mx-auto mt-10 w-fit md:opacity-0" id="stack" aria-labelledby="stack-heading">
   <h2
     id="stack-heading"
-    class="w-fit mx-auto mb-4 font-semibold text-lg md:text-xl relative select-none"
+    class="relative mx-auto mb-4 w-fit text-lg font-semibold select-none md:text-xl"
   >
     <span class="absolute top-[-1px] right-[-15px] rotate-[80deg]">
       <svg
@@ -63,9 +63,9 @@ import { Icon } from "astro-icon/components";
     </span>
     Tech stack
   </h2>
-  <div class="flex gap-4 items-center justify-center flex-wrap" role="list" aria-label="Tecnologias">
+  <div class="flex flex-wrap items-center justify-center gap-4" role="list" aria-label="Tecnologias">
     <!-- <Icon name="devicon:javascript"></Icon> -->
-    <div class="iconsection flex border-x border-black/10 dark:border-white/10 p-2 rounded-lg gap-2 max-md:flex-wrap" data-tooltip="Javascript">
+    <div class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10" data-tooltip="Javascript">
       <Icon name="mdi:nodejs" />
       <Icon name="devicon:typescript" />
       <Icon name="devicon:vuejs" />
@@ -75,12 +75,12 @@ import { Icon } from "astro-icon/components";
             <Icon icon='devicon:nuxt-icon'></Icon> -->
     </div>
 
-    <div class="iconsection flex border-x border-black/10 dark:border-white/10 p-2 rounded-lg gap-2 max-md:flex-wrap" data-tooltip="PHP">
+    <div class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10" data-tooltip="PHP">
       <Icon name="devicon:php" />
       <Icon name="devicon:laravel" />
     </div>
 
-    <div class="iconsection flex border-x border-black/10 dark:border-white/10 p-2 rounded-lg gap-2 max-md:flex-wrap" data-tooltip="SQL">
+    <div class="iconsection flex gap-2 rounded-lg border-x border-black/10 p-2 max-md:flex-wrap dark:border-white/10" data-tooltip="SQL">
       <Icon name="devicon:microsoftsqlserver" />
       <Icon name="devicon:postgresql" />
     </div>

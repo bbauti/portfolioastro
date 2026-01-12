@@ -11,14 +11,14 @@
 
     // Mostrar contenido inmediatamente en móvil
     if (window.innerWidth <= 768) {
-      heading.classList.remove('md:[&>*]:opacity-0');
+      heading.classList.remove('md:*:opacity-0');
       return;
     }
 
     // Cargar GSAP solo en desktop
     const gsapModules = await loadGSAP();
     if (!gsapModules) {
-      heading.classList.remove('md:[&>*]:opacity-0');
+      heading.classList.remove('md:*:opacity-0');
       return;
     }
 
@@ -40,7 +40,7 @@
             document.querySelector(".highlight")?.classList.add("animate");
           });
 
-          heading.classList.remove('md:[&>*]:opacity-0');
+          heading.classList.remove('md:*:opacity-0');
           observer.unobserve(entry.target);
         }
       });
@@ -52,18 +52,18 @@
 
 <header
   id="heading"
-  class="pt-[50px] md:pt-[80px] flex flex-col gap-4 items-center justify-center md:[&>*]:opacity-0"
+  class="flex flex-col items-center justify-center gap-4 pt-12.5 md:pt-20 md:*:opacity-0"
   role="banner"
 >
-  <p class="md:text-4xl text-2xl transition-all ease">¡Hola! Soy</p>
-  <h1 class="name-heading md:text-6xl text-4xl text-nowrap">Bautista Igarzabal</h1>
-  <p class="md:text-3xl text-xl">
+  <p class="ease text-2xl transition-all md:text-4xl">¡Hola! Soy</p>
+  <h1 class="name-heading text-4xl text-nowrap md:text-6xl">Bautista Igarzabal</h1>
+  <p class="text-xl md:text-3xl">
     <span class="highlight">Desarrollador web,</span> especializado en el
     <span>
       <span class="frontend">frontend</span>
-      <span class="ml-[-3px] md:ml-[-5px]">.</span>
+      <span class="-ml-0.75 md:-ml-1.25">.</span>
     </span>
-  </h3>
+  </p>
 </header>
 
 <style>
