@@ -1,6 +1,7 @@
 ---
 import { SEO } from "astro-seo";
 import { ViewTransitions } from "astro:transitions";
+import "../styles/main.css";
 
 import Navbar from "../components/Navbar.astro";
 import Header from "../components/Header.astro";
@@ -13,22 +14,22 @@ import Blur from "../components/Blur.astro";
 ---
 
 <script>
-  import { loadGSAP, createObserver } from '../utils/gsap-loader.js';
+  import { loadGSAP, createObserver } from "../utils/gsap-loader.js";
 
   document.addEventListener("DOMContentLoaded", async () => {
-    const projectsSection = document.getElementById('projects-section');
+    const projectsSection = document.getElementById("projects-section");
     if (!projectsSection) return;
 
     // Mostrar inmediatamente en móvil
     if (window.innerWidth <= 768) {
-      projectsSection.style.opacity = '1';
+      projectsSection.style.opacity = "1";
       return;
     }
 
     // Cargar GSAP solo en desktop con Intersection Observer
     const gsapModules = await loadGSAP();
     if (!gsapModules) {
-      projectsSection.style.opacity = '1';
+      projectsSection.style.opacity = "1";
       return;
     }
 
@@ -37,9 +38,16 @@ import Blur from "../components/Blur.astro";
     const observer = createObserver((entries: any) => {
       entries.forEach((entry: any) => {
         if (entry.isIntersecting) {
-          gsap.fromTo('#projects-section',
-            { y: '20%', opacity: 0, filter: 'blur(20px)' },
-            { y: '0%', opacity: 1, filter: 'blur(0px)', duration: 1.5, ease: 'power4.out'}
+          gsap.fromTo(
+            "#projects-section",
+            { y: "20%", opacity: 0, filter: "blur(20px)" },
+            {
+              y: "0%",
+              opacity: 1,
+              filter: "blur(0px)",
+              duration: 1.5,
+              ease: "power4.out",
+            },
           );
           observer.unobserve(entry.target);
         }
@@ -56,7 +64,11 @@ import Blur from "../components/Blur.astro";
     <style>
       /* Critical CSS inline for immediate LCP */
       #heading h2 {
-        font-family: 'Eudoxus Sans', system-ui, -apple-system, sans-serif !important;
+        font-family:
+          "Eudoxus Sans",
+          system-ui,
+          -apple-system,
+          sans-serif !important;
         font-weight: 700;
         color: transparent;
         -webkit-text-stroke: 2px #222630;
@@ -69,10 +81,14 @@ import Blur from "../components/Blur.astro";
         font-display: block;
       }
       @media (min-width: 769px) {
-        #heading h2 { opacity: 1 !important; }
+        #heading h2 {
+          opacity: 1 !important;
+        }
       }
       @media (prefers-color-scheme: dark) {
-        #heading h2 { -webkit-text-stroke-color: #ededed; }
+        #heading h2 {
+          -webkit-text-stroke-color: #ededed;
+        }
       }
     </style>
     <SEO
@@ -93,9 +109,25 @@ import Blur from "../components/Blur.astro";
         link: [
           { rel: "icon", href: "/favicon.ico" },
           { rel: "sitemap", href: "/sitemap-index.xml" },
-          { rel: "preload", href: "/fonts/EudoxusSans-Bold.woff2", as: "font", type: "font/woff2", crossorigin: "anonymous" },
-          { rel: "preload", href: "/fonts/InterVariable.ttf", as: "font", type: "font/ttf", crossorigin: "anonymous" },
-          { rel: "preconnect", href: "https://fonts.gstatic.com", crossorigin: "anonymous" },
+          {
+            rel: "preload",
+            href: "/fonts/EudoxusSans-Bold.woff2",
+            as: "font",
+            type: "font/woff2",
+            crossorigin: "anonymous",
+          },
+          {
+            rel: "preload",
+            href: "/fonts/InterVariable.ttf",
+            as: "font",
+            type: "font/ttf",
+            crossorigin: "anonymous",
+          },
+          {
+            rel: "preconnect",
+            href: "https://fonts.gstatic.com",
+            crossorigin: "anonymous",
+          },
         ],
         // extending the default meta tags
         meta: [
@@ -118,34 +150,6 @@ import Blur from "../components/Blur.astro";
     <!-- <Socials /> -->
     <Navbar />
     <main class="shadow-xl relative">
-      <div id="noise"></div>
-      <div
-        class="rays absolute inset-0 z-10  pointer-events-none overflow-hidden opacity-30"
-      >
-        <div
-          class="absolute left-1/2 top-1/2 h-full min-h-[432px] w-full min-w-[768px] -translate-x-1/2 -translate-y-1/2"
-        >
-          <div class="absolute inset-0 wrapper">
-            <div class="absolute inset-0 overflow-hidden">
-              <div
-                class="pointer-events-none absolute -inset-[10px] overflow-hidden text-white invert dark:text-black dark:invert-0 dark:opacity-10 transition-opacity duration-500 opacity-30 stripes"
-              >
-                <div
-                  class="animate-god-rays absolute h-full w-[300%] mix-blend-difference"
-                >
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="overflow-hidden">
-        <img
-          class="absolute top-0 left-0 w-full opacity-[.25] grayscale w-[150vw] h-[80vh] object-cover md:w-full md:h-auto"
-          src="/background.webp" alt="background image"
-          style="mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%); -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0) 100%);"
-        >
-      </div>
       <section class="relative pb-[4rem] lg:pb-[2rem] p-[2rem]">
         <Header />
         <Stack />
@@ -158,27 +162,29 @@ import Blur from "../components/Blur.astro";
 
     <style>
       * {
-        transition: opacity .1s ease-in-out, transform .1s ease-in-out;
+        transition:
+          opacity 0.1s ease-in-out,
+          transform 0.1s ease-in-out;
       }
 
       @font-face {
-        font-family: 'Inter';
-        src: url('/fonts/InterVariable.ttf') format("truetype-variations");
+        font-family: "Inter";
+        src: url("/fonts/InterVariable.ttf") format("truetype-variations");
         font-weight: 1 999;
         font-display: block;
       }
 
       @font-face {
-        font-family: 'Eudoxus Sans';
-        src: url('/fonts/EudoxusSans-Bold.woff2') format('woff2');
+        font-family: "Eudoxus Sans";
+        src: url("/fonts/EudoxusSans-Bold.woff2") format("woff2");
         font-display: block;
         font-weight: 700;
         font-style: normal;
       }
 
       @font-face {
-        font-family: 'Geist Mono';
-        src: url('/fonts/GeistMonoVF.ttf') format("truetype-variations");
+        font-family: "Geist Mono";
+        src: url("/fonts/GeistMonoVF.ttf") format("truetype-variations");
         font-weight: 1 999;
         font-display: swap;
       }
@@ -191,21 +197,6 @@ import Blur from "../components/Blur.astro";
         overflow: hidden;
         border-radius: 2rem;
         margin-bottom: 2rem;
-      }
-
-      #noise {
-        animation: grain 12s steps(8) infinite;
-        background-image: url(/noise.webp);
-        content: "";
-        height: 200%;
-        left: -25%;
-        opacity: 0.08;
-        position: fixed;
-        top: -50%;
-        width: 200%;
-        pointer-events: none;
-        z-index: 30;
-        will-change: transform;
       }
 
       html {
@@ -278,12 +269,6 @@ import Blur from "../components/Blur.astro";
         main {
           padding: 1rem;
         }
-        #noise {
-          display: none;
-        }
-        .rays {
-          display: none;
-        }
       }
 
       .wrapper {
@@ -327,25 +312,6 @@ import Blur from "../components/Blur.astro";
           50% 50%;
       }
 
-      .animate-god-rays {
-        background-image: var(--stripes), var(--rainbow);
-        background-size: 100%, 100%;
-        background-position: 50% 50%;
-        animation: god-rays var(--duration) cubic-bezier(0.15, 0, 0.85, 1)
-          infinite alternate;
-        will-change: transform;
-        transform: translateZ(0);
-      }
-
-      @keyframes god-rays {
-        0% {
-          transform: translateX(-50%);
-        }
-        to {
-          transform: translateX(0);
-        }
-      }
-
       /* Dark mode */
 
       :global(.dark) {
@@ -356,10 +322,6 @@ import Blur from "../components/Blur.astro";
         main {
           color: #ededed;
           background-color: #0c0c0c;
-        }
-
-        .rays {
-          opacity: 0.1;
         }
 
         #noise {

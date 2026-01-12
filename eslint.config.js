@@ -1,63 +1,80 @@
-import eslintPluginAstro from 'eslint-plugin-astro';
+import eslintPluginAstro from "eslint-plugin-astro";
+import eslintPluginBetterTailwindcss from "eslint-plugin-better-tailwindcss";
+import eslintParserTypeScript from "@typescript-eslint/parser";
+import eslintParserAstro from "astro-eslint-parser";
+import typescriptEslint from "@typescript-eslint/eslint-plugin";
+import js from "@eslint/js";
+import globals from "globals";
 
-const basicRules = {
-  'no-console': process.env.NODE_ENV !== 'development' ? 'error' : 'off',
-  'no-debugger': process.env.NODE_ENV !== 'development' ? 'error' : 'off',
-  'no-nested-ternary': 'error',
-  curly: ['error', 'multi-line'],
-  'no-constant-binary-expression': 'error',
-};
+const isProd = process.env.NODE_ENV !== "development";
 
-const tsRules = {
-  '@typescript-eslint/no-unused-vars': [
-    'warn',
-    { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
-  ],
-  '@typescript-eslint/ban-ts-comment': 'off',
-  '@typescript-eslint/no-explicit-any': 'off',
-};
-
-const astroRules = {
-  // Add or override Astro-specific rules here
-  // 'astro/no-set-html-directive': 'error',
-};
-
-const getExtends = (configs = []) => [
-  'eslint:recommended',
-  ...configs,
-];
-
-const config = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-    es2022: true,
-  },
-  extends: getExtends(),
-  rules: basicRules,
-  parserOptions: {
-    ecmaVersion: 2022,
-    sourceType: 'module',
-  },
-  reportUnusedDisableDirectives: true,
-  overrides: [
-    {
-      files: ['*.ts', '*.astro'],
-      parserOptions: {
-        parser: '@typescript-eslint/parser',
+export default [
+  js.configs.recommended,
+  ...eslintPluginAstro.configs.recommended,
+  {
+    files: ["**/*.{js,ts,astro}"],
+    languageOptions: {
+      globals: {
+        ...globals.browser,
+        ...globals.node,
       },
-      plugins: ['@typescript-eslint'],
-      extends: getExtends([
-        'plugin:@typescript-eslint/recommended',
-        ...eslintPluginAstro.configs.recommended,
-      ]),
-      rules: {
-        ...tsRules,
-        ...astroRules,
+      ecmaVersion: 2022,
+      sourceType: "module",
+    },
+    rules: {
+      "no-console": isProd ? "error" : "off",
+      "no-debugger": isProd ? "error" : "off",
+      "no-nested-ternary": "error",
+      curly: ["error", "multi-line"],
+      "no-constant-binary-expression": "error",
+    },
+  },
+  {
+    files: ["**/*.ts"],
+    languageOptions: {
+      parser: eslintParserTypeScript,
+    },
+    plugins: {
+      "@typescript-eslint": typescriptEslint,
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+    },
+  },
+  {
+    files: ["**/*.astro"],
+    languageOptions: {
+      parser: eslintParserAstro,
+      parserOptions: {
+        parser: eslintParserTypeScript,
       },
     },
-  ],
-};
-
-export default config;
+    plugins: {
+      "@typescript-eslint": typescriptEslint,
+      "better-tailwindcss": eslintPluginBetterTailwindcss,
+    },
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },
+      ],
+      "@typescript-eslint/ban-ts-comment": "off",
+      "@typescript-eslint/no-explicit-any": "off",
+      "better-tailwindcss/enforce-consistent-line-wrapping": [
+        "warn",
+        { printWidth: Infinity },
+      ],
+      ...eslintPluginBetterTailwindcss.configs["recommended-warn"].rules,
+    },
+    settings: {
+      "better-tailwindcss": {
+        entryPoint: "src/styles/main.css",
+      },
+    },
+  },
+];

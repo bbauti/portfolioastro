@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
+import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import sitemap from "@astrojs/sitemap";
 
@@ -9,7 +9,7 @@ import robotsTxt from "astro-robots-txt";
 export default defineConfig({
   site: 'https://test.bbauti.ar',
   output: 'static',
-  integrations: [tailwind(), icon({
+  integrations: [icon({
     iconDir: "src/icons",
     include: {
       devicon: ["*"],
@@ -29,6 +29,7 @@ export default defineConfig({
     domains: ['avatars.githubusercontent.com']
   },
   vite: {
+    plugins: [tailwindcss()],
     build: {
       target: 'es2020',
       cssCodeSplit: true,

@@ -48,7 +48,7 @@ import { Icon } from "astro-icon/components";
   <h2
     class="w-fit mx-auto mb-4 font-semibold text-lg md:text-xl relative select-none"
   >
-    <span class="absolute top-[-1px] right-[-15px] star">
+    <span class="absolute top-[-1px] right-[-15px] rotate-[80deg]">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         class="svg-icon"
@@ -64,7 +64,7 @@ import { Icon } from "astro-icon/components";
   </h2>
   <div class="flex gap-4 items-center justify-center flex-wrap">
     <!-- <Icon name="devicon:javascript"></Icon> -->
-    <div class="iconsection" data-tooltip="Javascript">
+    <div class="iconsection flex border-x border-black/10 dark:border-white/10 p-2 rounded-lg gap-2 max-md:flex-wrap" data-tooltip="Javascript">
       <Icon name="mdi:nodejs" />
       <Icon name="devicon:typescript" />
       <Icon name="devicon:vuejs" />
@@ -74,12 +74,12 @@ import { Icon } from "astro-icon/components";
             <Icon icon='devicon:nuxt-icon'></Icon> -->
     </div>
 
-    <div class="iconsection" data-tooltip="PHP">
+    <div class="iconsection flex border-x border-black/10 dark:border-white/10 p-2 rounded-lg gap-2 max-md:flex-wrap" data-tooltip="PHP">
       <Icon name="devicon:php" />
       <Icon name="devicon:laravel" />
     </div>
 
-    <div class="iconsection" data-tooltip="SQL">
+    <div class="iconsection flex border-x border-black/10 dark:border-white/10 p-2 rounded-lg gap-2 max-md:flex-wrap" data-tooltip="SQL">
       <Icon name="devicon:microsoftsqlserver" />
       <Icon name="devicon:postgresql" />
     </div>
@@ -107,21 +107,8 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <style>
-  .star {
-    rotate: 80deg;
-  }
-
   [data-icon="mdi:nodejs"] {
     color: #539e43;
-  }
-
-  .iconsection {
-    display: flex;
-    border-left: 1px solid #0000001f;
-    border-right: 1px solid #0000001f;
-    padding: 0.5rem;
-    border-radius: 10px;
-    gap: 0.5rem;
   }
 
   [data-icon] {
@@ -192,19 +179,9 @@ import { Icon } from "astro-icon/components";
     [data-icon]:hover {
       margin: 0;
     }
-
-    .iconsection {
-      flex-wrap: wrap;
-    }
   }
 
   :global(.dark) {
-
-    .iconsection {
-      border-left-color: #ffffff1f;
-      border-right-color: #ffffff1f;
-    }
-
     [data-tooltip]:hover {
       border-color: #ffffff1f;
     }

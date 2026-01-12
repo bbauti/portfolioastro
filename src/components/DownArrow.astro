@@ -15,7 +15,7 @@ import { Icon } from "astro-icon/components";
   });
 </script>
 
-<div class="down-arrow pointer hidden sm:block" id="down-arrow">
+<div class="down-arrow pointer hidden sm:block w-fit mx-auto my-12 text-3xl transition-all duration-200 opacity-0 hover:opacity-50 max-md:absolute max-md:inset-[-2rem] max-md:mt-auto max-md:h-fit" id="down-arrow">
   <a href="#cards" aria-label="Go to cards">
     <Icon name="mdi:arrow-down-box" />
   </a>
@@ -23,16 +23,7 @@ import { Icon } from "astro-icon/components";
 
 <style>
   .down-arrow {
-    width: fit-content;
-    margin: 3rem auto;
-    font-size: 2rem;
     animation: bounce 2s infinite;
-    transition: all 0.2s ease;
-    opacity: 0;
-  }
-
-  .down-arrow:hover {
-    opacity: 0.5;
   }
 
   @keyframes bounce {
@@ -50,18 +41,6 @@ import { Icon } from "astro-icon/components";
 
     60% {
       transform: translateY(5px);
-    }
-  }
-
-  @media (max-width: 768px) {
-    .down-arrow {
-      position: absolute;
-      inset: -2rem;
-      margin-top: auto;
-      height: fit-content;
-      font-size: 2rem;
-      animation: bounce 2s infinite;
-      transition: all 0.2s ease;
     }
   }
 </style>
