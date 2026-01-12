@@ -154,6 +154,7 @@ import SchemaOrg from "../components/SchemaOrg.astro";
           { name: "keywords", content: "desarrollador frontend, vue developer, nuxt developer, typescript, portfolio, web developer, argentina, bautista igarzabal" },
           { name: "geo.region", content: "AR" },
           { name: "geo.placename", content: "Argentina" },
+          { property: "article:author", content: "Bautista Igarzabal" },
         ],
       }}
     />
@@ -203,13 +204,15 @@ import SchemaOrg from "../components/SchemaOrg.astro";
     <!-- <Socials /> -->
     <Navbar />
     <main class="relative shadow-xl">
-      <section class="relative p-8 pb-16 lg:pb-8">
-        <Header />
-        <Stack />
-        <DownArrow />
-      </section>
-      <Projects />
-      <Contact />
+      <article>
+        <section class="relative p-8 pb-16 lg:pb-8">
+          <Header />
+          <Stack />
+          <DownArrow />
+        </section>
+        <Projects />
+        <Contact />
+      </article>
     </main>
     <Footer />
 

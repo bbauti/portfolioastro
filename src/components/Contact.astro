@@ -37,8 +37,9 @@ import { Icon } from "astro-icon/components";
 </script>
 
 <section class="my-24 flex w-full flex-col items-center justify-center gap-12 md:flex-row" aria-labelledby="contact-heading">
-  <section
+  <aside
     class="mx-auto w-fit rotate-[-2deg] overflow-hidden rounded-[10px] border border-dashed border-gray-500/40 shadow-md select-none md:m-0"
+    aria-label="Información sobre el autor"
   >
     <div
       class="relative border-0 border-b border-dashed border-b-gray-500/40 p-[.5rem]"
@@ -46,6 +47,7 @@ import { Icon } from "astro-icon/components";
       <!-- TODO: Vertical centering -->
       <div
         class="absolute top-0 left-[.5rem] flex h-full items-center gap-1 text-[.8rem] leading-[.5rem]"
+        aria-hidden="true"
       >
         <p class="text-orange-400">●</p>
         <p class="text-yellow-300">●</p>
@@ -64,7 +66,7 @@ import { Icon } from "astro-icon/components";
       la colaboración, brindando ayuda y discutiendo
       abiertamente ideas y preguntas.
     </pre>
-  </section>
+  </aside>
   <div class="my-auto w-full max-w-[20ch]">
     <h2 id="contact-heading" class="text-2xl font-bold">
       Listo para iniciar tu proyecto?
