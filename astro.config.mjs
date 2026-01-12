@@ -19,9 +19,12 @@ export default defineConfig({
       }
     }),
     sitemap({
-      changefreq: 'monthly',
-      priority: 1.0,
-      lastmod: new Date(),
+      serialize(item) {
+        item.changefreq = 'monthly';
+        item.priority = 1.0;
+        item.lastmod = new Date();
+        return item;
+      },
     }),
     robotsTxt({
       sitemap: true,
