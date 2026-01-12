@@ -1,0 +1,39 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c0c0c"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0c0c0c"/>
+    </linearGradient>
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#ec0ebc"/>
+      <stop offset="100%" style="stop-color:#8415ec"/>
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff00cd;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#6500ff;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Decorative gradient circles -->
+  <circle cx="150" cy="100" r="200" fill="url(#accentGradient)" filter="blur(60px)"/>
+  <circle cx="1050" cy="530" r="250" fill="url(#accentGradient)" filter="blur(80px)"/>
+
+  <!-- Main content -->
+  <text x="600" y="240" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#ffffff" opacity="0.7">Hola! Soy</text>
+
+  <!-- Name with stroke effect -->
+  <text x="600" y="320" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="none" stroke="#ededed" stroke-width="2" transform="skewX(-2)">Bautista Igarzabal</text>
+
+  <!-- Role with gradient -->
+  <text x="600" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="36" fill="url(#textGradient)" font-weight="600">Desarrollador Frontend</text>
+
+  <!-- Tech stack -->
+  <text x="600" y="480" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#ffffff" opacity="0.5">Vue | Nuxt | TypeScript | Node.js</text>
+
+  <!-- Website URL -->
+  <text x="600" y="580" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" fill="#ffffff" opacity="0.4">bbauti.ar</text>
+</svg>

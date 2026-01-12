@@ -53,10 +53,11 @@
 <header
   id="heading"
   class="pt-[50px] md:pt-[80px] flex flex-col gap-4 items-center justify-center md:[&>*]:opacity-0"
+  role="banner"
 >
-  <h1 class="md:text-4xl text-2xl transition-all ease">¡Hola! Soy</h1>
-  <h2 class="md:text-6xl text-4xl text-nowrap">Bautista Igarzabal</h2>
-  <h3 class="md:text-3xl text-xl">
+  <p class="md:text-4xl text-2xl transition-all ease">¡Hola! Soy</p>
+  <h1 class="name-heading md:text-6xl text-4xl text-nowrap">Bautista Igarzabal</h1>
+  <p class="md:text-3xl text-xl">
     <span class="highlight">Desarrollador web,</span> especializado en el
     <span>
       <span class="frontend">frontend</span>
@@ -95,7 +96,7 @@
       url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='10' numOctaves='6' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
   }
 
-  h2 {
+  h1 {
     color: transparent;
     -webkit-text-stroke: 2px #222630;
     transform: skew(-2deg);
@@ -104,7 +105,7 @@
     font-weight: 700;
   }
 
-  h2:hover {
+  h1:hover {
     color: #222630;
     transform: skew(-2deg) scale(1.1) translateY(-10px);
     letter-spacing: normal;
@@ -146,12 +147,12 @@
   }
 
   @media (max-width: 768px) {
-    header > h2 {
+    header > h1 {
       -webkit-text-stroke-width: 1px;
       letter-spacing: -0.05rem;
     }
 
-    header > h2:hover {
+    header > h1:hover {
       letter-spacing: 1px;
     }
   }
@@ -167,11 +168,11 @@
       filter: brightness(0.8) blur(0.1px) invert(1) ;
     }
 
-    header h2 {
+    header h1 {
       -webkit-text-stroke-color: #ededed !important;
     }
 
-    header h2:hover {
+    header h1:hover {
       color: #ededed !important;
       text-shadow: 0 0 20px hsla(0, 0%, 89%, 0.353);
     }

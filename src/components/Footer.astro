@@ -4,6 +4,8 @@ import { Icon } from "astro-icon/components";
 
 <footer
   class="min-h-[50dvh] flex items-center sticky bottom-0 bg-[#222630] relative"
+  role="contentinfo"
+  aria-label="Pie de pagina"
 >
   <div class="absolute inset-0 -z-[1] overflow-hidden">
     <div
@@ -28,69 +30,74 @@ import { Icon } from "astro-icon/components";
     <div class="text-[#f3f3f3] flex flex-col justify-center">
       <span class="text-2xl tracking-wider italic font-[700]"> bbauti </span>
       <a
-        href="http://github.com/bbauti/portfolioastro"
-        aria-label="Source code"
+        href="https://github.com/bbauti/portfolioastro"
+        aria-label="Ver codigo fuente en GitHub"
         class="flex items-center gap-2"
         target="_blank"
+        rel="noopener noreferrer"
       >
         <Icon name="mdi:github" />
         <span class="mb-[.3rem]">source</span>
       </a>
     </div>
 
-    <div class="flex flex-col justify-center gap-4 text-[#f3f3f3]">
-      <p class="uppercase text-sm font-bold">Contactame</p>
-      <ul class="flex flex-col gap-0.5 socials">
+    <nav class="flex flex-col justify-center gap-4 text-[#f3f3f3]" aria-label="Enlaces de contacto">
+      <p class="uppercase text-sm font-bold" id="contact-nav-heading">Contactame</p>
+      <ul class="flex flex-col gap-0.5 socials" aria-labelledby="contact-nav-heading">
         <li>
           <a
             href="https://www.linkedin.com/in/bbauti"
             target="_blank"
+            rel="noopener noreferrer"
             class="group flex items-center justify-between gap-2 w-full"
-            aria-label="Linkedin">Linkedin<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
+            aria-label="Visitar perfil de LinkedIn">Linkedin<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
           >
         </li>
         <li>
           <a
             href="mailto:bautistaigarzabal11@gmail.com"
-            target="_blank"
             class="group flex items-center justify-between gap-2 w-full"
-            aria-label="Email">Email<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
+            aria-label="Enviar email">Email<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
           >
         </li>
         <li>
           <a
             href="https://x.com/akabbauti"
             target="_blank"
+            rel="noopener noreferrer"
             class="group flex items-center justify-between gap-2 w-full"
-            aria-label="Twitter">Twitter<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
+            aria-label="Visitar perfil de Twitter">Twitter<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
           >
         </li>
         <li>
           <a
-          href="http://github.com/bbauti"
+          href="https://github.com/bbauti"
           target="_blank"
+          rel="noopener noreferrer"
           class="group flex items-center justify-between gap-2 w-full"
-          aria-label="Github">Github<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
+          aria-label="Visitar perfil de GitHub">Github<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
           >
         </li>
         <li class="hidden">
           <a
             href="https://read.cv/bbauti"
             target="_blank"
+            rel="noopener noreferrer"
             class="group flex items-center justify-between gap-2 w-full"
-            aria-label="Curriculum">CV<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
+            aria-label="Ver curriculum">CV<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
           >
         </li>
         <li>
           <a
             href="https://www.behance.net/bbauti"
             target="_blank"
+            rel="noopener noreferrer"
             class="group flex items-center justify-between gap-2 w-full"
-            aria-label="Behance">Behance<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
+            aria-label="Visitar perfil de Behance">Behance<Icon name="mdi:arrow-right" class="transform rotate-[-45deg] group-hover:rotate-0 transition-all ease-in-out" /></a
           >
         </li>
       </ul>
-    </div>
+    </nav>
   </section>
   <div class="gradient-bottom"></div>
 </footer>

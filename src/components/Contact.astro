@@ -36,7 +36,7 @@ import { Icon } from "astro-icon/components";
   });
 </script>
 
-<main class="flex justify-center w-full gap-12 flex-col md:flex-row items-center my-24">
+<section class="flex justify-center w-full gap-12 flex-col md:flex-row items-center my-24" aria-labelledby="contact-heading">
   <section
     class="select-none border border-dashed border-gray-500/40 rounded-[10px] w-fit rotate-[-2deg] shadow-md overflow-hidden mx-auto md:m-0"
   >
@@ -65,15 +65,15 @@ import { Icon } from "astro-icon/components";
       abiertamente ideas y preguntas.
     </pre>
   </section>
-  <section class="max-w-[20ch] w-full my-auto">
-    <h2 class="text-2xl font-bold">
+  <div class="max-w-[20ch] w-full my-auto">
+    <h2 id="contact-heading" class="text-2xl font-bold">
       Listo para iniciar tu proyecto?
-      <a href="mailto:bautistaigarzabal11@gmail.com" id="contact" class="underline hover:text-violet-500 transition-all ease flex items-center">
+      <a href="mailto:bautistaigarzabal11@gmail.com" id="contact" class="underline hover:text-violet-500 transition-all ease flex items-center" aria-label="Enviar email para contacto">
         Hablemos!
         <span id="icon" class="opacity-0 inline-block text-violet-500">
           <Icon name="mdi:email" class="h-6 w-6" />
         </span>
       </a>
     </h2>
-  </section>
-</main>
+  </div>
+</section>

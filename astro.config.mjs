@@ -7,16 +7,32 @@ import robotsTxt from "astro-robots-txt";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://test.bbauti.ar',
+  site: 'https://bbauti.ar',
   output: 'static',
-  integrations: [icon({
-    iconDir: "src/icons",
-    include: {
-      devicon: ["*"],
-      mdi: ["*"],
-      ph: ["*"]
-    }
-  }), sitemap(), robotsTxt()],
+  integrations: [
+    icon({
+      iconDir: "src/icons",
+      include: {
+        devicon: ["*"],
+        mdi: ["*"],
+        ph: ["*"]
+      }
+    }),
+    sitemap({
+      changefreq: 'monthly',
+      priority: 1.0,
+      lastmod: new Date(),
+    }),
+    robotsTxt({
+      sitemap: true,
+      policy: [
+        {
+          userAgent: '*',
+          allow: '/',
+        },
+      ],
+    }),
+  ],
   build: {
     inlineStylesheets: 'auto',
     split: true,

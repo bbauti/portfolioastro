@@ -11,6 +11,7 @@ import Projects from "../components/Projects.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import Blur from "../components/Blur.astro";
+import SchemaOrg from "../components/SchemaOrg.astro";
 ---
 
 <script>
@@ -58,12 +59,12 @@ import Blur from "../components/Blur.astro";
   });
 </script>
 
-<html lang="en" transition:animate="slide">
+<html lang="es" transition:animate="slide">
   <head>
     <meta charset="utf-8" />
     <style>
       /* Critical CSS inline for immediate LCP */
-      #heading h2 {
+      #heading h1 {
         font-family:
           "Eudoxus Sans",
           system-ui,
@@ -81,31 +82,50 @@ import Blur from "../components/Blur.astro";
         font-display: block;
       }
       @media (min-width: 769px) {
-        #heading h2 {
+        #heading h1 {
           opacity: 1 !important;
         }
       }
       @media (prefers-color-scheme: dark) {
-        #heading h2 {
+        #heading h1 {
           -webkit-text-stroke-color: #ededed;
         }
       }
     </style>
     <SEO
-      title="Bautista Igarzabal"
-      description="Portfolio personal"
+      title="Bautista Igarzabal | Desarrollador Frontend"
+      description="Desarrollador web frontend con mas de 5 anos de experiencia. Especializado en Vue, Nuxt, TypeScript y experiencias web interactivas. Portfolio de proyectos profesionales."
+      canonical="https://bbauti.ar/"
       openGraph={{
         basic: {
-          title: "Bautista Igarzabal",
+          title: "Bautista Igarzabal | Desarrollador Frontend",
           type: "website",
-          image: "https://avatars.githubusercontent.com/u/68351913",
+          image: "https://bbauti.ar/og-image.png",
+          url: "https://bbauti.ar/",
+        },
+        optional: {
+          siteName: "Bautista Igarzabal Portfolio",
+          locale: "es_AR",
+          description: "Desarrollador web frontend con mas de 5 anos de experiencia. Especializado en Vue, Nuxt, TypeScript y experiencias web interactivas.",
+        },
+        image: {
+          url: "https://bbauti.ar/og-image.png",
+          alt: "Bautista Igarzabal - Desarrollador Frontend Portfolio",
+          width: 1200,
+          height: 630,
+          type: "image/png",
         },
       }}
       twitter={{
-        creator: "@aka.bbauti",
+        card: "summary_large_image",
+        site: "@akabbauti",
+        creator: "@akabbauti",
+        title: "Bautista Igarzabal | Desarrollador Frontend",
+        description: "Desarrollador web frontend especializado en Vue, Nuxt y TypeScript.",
+        image: "https://bbauti.ar/og-image.png",
+        imageAlt: "Bautista Igarzabal Portfolio",
       }}
       extend={{
-        // extending the default link tags
         link: [
           { rel: "icon", href: "/favicon.ico" },
           { rel: "sitemap", href: "/sitemap-index.xml" },
@@ -123,26 +143,59 @@ import Blur from "../components/Blur.astro";
             type: "font/ttf",
             crossorigin: "anonymous",
           },
-          {
-            rel: "preconnect",
-            href: "https://fonts.gstatic.com",
-            crossorigin: "anonymous",
-          },
+          { rel: "dns-prefetch", href: "https://avatars.githubusercontent.com" },
+          { rel: "dns-prefetch", href: "https://github.com" },
         ],
-        // extending the default meta tags
         meta: [
-          {
-            name: "twitter:image",
-            content: "https://avatars.githubusercontent.com/u/68351913",
-          },
-          { name: "twitter:title", content: "Bautista Igarzabal" },
-          { name: "twitter:description", content: "Portfolio" },
+          { name: "author", content: "Bautista Igarzabal" },
+          { name: "robots", content: "index, follow" },
+          { name: "googlebot", content: "index, follow" },
           { name: "theme-color", content: "#ffffff" },
+          { name: "keywords", content: "desarrollador frontend, vue developer, nuxt developer, typescript, portfolio, web developer, argentina, bautista igarzabal" },
+          { name: "geo.region", content: "AR" },
+          { name: "geo.placename", content: "Argentina" },
         ],
       }}
     />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <SchemaOrg
+      name="Bautista Igarzabal"
+      jobTitle="Desarrollador Frontend"
+      description="Desarrollador web frontend con mas de 5 anos de experiencia especializado en Vue, Nuxt y TypeScript."
+      url="https://bbauti.ar"
+      image="https://avatars.githubusercontent.com/u/68351913"
+      email="bautistaigarzabal11@gmail.com"
+      sameAs={[
+        "https://www.linkedin.com/in/bbauti",
+        "https://github.com/bbauti",
+        "https://x.com/akabbauti",
+        "https://www.behance.net/bbauti"
+      ]}
+      projects={[
+        {
+          name: "Iberojet",
+          description: "Plataforma de viajes con Vue 3 y Nuxt 3",
+          url: "https://iberojet.com/",
+          image: "https://bbauti.ar/projects/iberojet.webp",
+          technologies: ["Vue", "Nuxt", "TypeScript"]
+        },
+        {
+          name: "PlanB",
+          description: "Plataforma de reserva de experiencias",
+          url: "https://planb.es/",
+          image: "https://bbauti.ar/projects/planb.webp",
+          technologies: ["Vue", "Nuxt", "TypeScript"]
+        },
+        {
+          name: "Punto Bazar",
+          description: "Aplicacion de gestion de inventario",
+          url: "https://dash.bbauti.ar/",
+          image: "https://bbauti.ar/projects/dashboard.webp",
+          technologies: ["Svelte", "JavaScript", "Vite"]
+        }
+      ]}
+    />
     <ViewTransitions />
   </head>
   <body>

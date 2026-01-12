@@ -1,0 +1,131 @@
+---
+interface Project {
+  name: string;
+  description: string;
+  url: string;
+  image: string;
+  technologies: string[];
+}
+
+interface Props {
+  name: string;
+  jobTitle: string;
+  description: string;
+  url: string;
+  image: string;
+  sameAs: string[];
+  email: string;
+  projects?: Project[];
+}
+
+const {
+  name,
+  jobTitle,
+  description,
+  url,
+  image,
+  sameAs,
+  email,
+  projects = [],
+} = Astro.props;
+
+// Person Schema
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": `${url}#person`,
+  name: name,
+  jobTitle: jobTitle,
+  description: description,
+  url: url,
+  image: image,
+  email: `mailto:${email}`,
+  sameAs: sameAs,
+  knowsAbout: [
+    "Vue.js",
+    "Nuxt.js",
+    "TypeScript",
+    "JavaScript",
+    "Frontend Development",
+    "Web Development",
+    "HTML",
+    "CSS",
+    "Node.js",
+    "PHP",
+    "Laravel",
+  ],
+};
+
+// WebSite Schema
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "@id": `${url}#website`,
+  url: url,
+  name: `${name} Portfolio`,
+  description: description,
+  author: {
+    "@id": `${url}#person`,
+  },
+  inLanguage: "es-AR",
+};
+
+// WebPage Schema
+const webPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "@id": `${url}#webpage`,
+  url: url,
+  name: `${name} | Desarrollador Frontend`,
+  description: description,
+  isPartOf: {
+    "@id": `${url}#website`,
+  },
+  about: {
+    "@id": `${url}#person`,
+  },
+  inLanguage: "es-AR",
+  datePublished: "2024-01-01",
+  dateModified: new Date().toISOString().split("T")[0],
+};
+
+// Professional Service Schema
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": `${url}#service`,
+  name: `${name} - Desarrollo Frontend`,
+  provider: {
+    "@id": `${url}#person`,
+  },
+  serviceType: "Frontend Web Development",
+  areaServed: {
+    "@type": "Place",
+    name: "Worldwide",
+  },
+  description: "Desarrollo frontend profesional con Vue, Nuxt y TypeScript",
+};
+
+// Projects as CreativeWork items
+const projectSchemas = projects.map((project, index) => ({
+  "@context": "https://schema.org",
+  "@type": "CreativeWork",
+  "@id": `${url}#project-${index}`,
+  name: project.name,
+  description: project.description,
+  url: project.url,
+  image: project.image,
+  creator: {
+    "@id": `${url}#person`,
+  },
+  keywords: project.technologies.join(", "),
+}));
+
+// Combined schema graph
+const schemaGraph = {
+  "@context": "https://schema.org",
+  "@graph": [personSchema, websiteSchema, webPageSchema, serviceSchema, ...projectSchemas],
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaGraph)} />
