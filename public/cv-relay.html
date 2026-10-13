@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="robots" content="noindex"><title>CV</title></head>
+<body>
+<p>Sending CV…</p>
+<script>
+  // Hands the public CV to the opener window (used to attach it in application forms)
+  fetch('/cv.pdf').then(r => r.blob()).then(blob => {
+    if (window.opener) window.opener.postMessage({ type: 'bbauti-cv', blob }, '*')
+    document.body.textContent = 'CV sent. You can close this window.'
+    setTimeout(() => window.close(), 800)
+  })
+</script>
+</body>
+</html>
