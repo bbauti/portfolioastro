@@ -59,7 +59,7 @@ import SchemaOrg from "../components/SchemaOrg.astro";
   });
 </script>
 
-<html lang="es" transition:animate="slide">
+<html lang="en" transition:animate="slide">
   <head>
     <meta charset="utf-8" />
     <style>
@@ -93,24 +93,24 @@ import SchemaOrg from "../components/SchemaOrg.astro";
       }
     </style>
     <SEO
-      title="Bautista Igarzabal | Desarrollador Frontend"
-      description="Desarrollador web frontend con mas de 5 años de experiencia. Especializado en Vue, Nuxt, TypeScript y experiencias web interactivas. Portfolio de proyectos profesionales."
+      title="Bautista Igarzabal | Frontend Engineer"
+      description="Frontend engineer specialized in Vue, Nuxt and TypeScript. Primary frontend engineer of Iberojet's flight-booking platform. Remote from Buenos Aires, Argentina."
       canonical="https://bbauti.ar/"
       openGraph={{
         basic: {
-          title: "Bautista Igarzabal | Desarrollador Frontend",
+          title: "Bautista Igarzabal | Frontend Engineer",
           type: "website",
           image: "https://bbauti.ar/og-image.png",
           url: "https://bbauti.ar/",
         },
         optional: {
           siteName: "Bautista Igarzabal Portfolio",
-          locale: "es_AR",
-          description: "Desarrollador web frontend con mas de 5 años de experiencia. Especializado en Vue, Nuxt, TypeScript y experiencias web interactivas.",
+          locale: "en_US",
+          description: "Frontend engineer specialized in Vue, Nuxt and TypeScript. Primary frontend engineer of Iberojet's flight-booking platform. Remote from Buenos Aires, Argentina.",
         },
         image: {
           url: "https://bbauti.ar/og-image.png",
-          alt: "Bautista Igarzabal - Desarrollador Frontend Portfolio",
+          alt: "Bautista Igarzabal - Frontend Engineer",
           width: 1200,
           height: 630,
           type: "image/png",
@@ -118,10 +118,8 @@ import SchemaOrg from "../components/SchemaOrg.astro";
       }}
       twitter={{
         card: "summary_large_image",
-        site: "@akabbauti",
-        creator: "@akabbauti",
-        title: "Bautista Igarzabal | Desarrollador Frontend",
-        description: "Desarrollador web frontend especializado en Vue, Nuxt y TypeScript.",
+        title: "Bautista Igarzabal | Frontend Engineer",
+        description: "Frontend engineer specialized in Vue, Nuxt and TypeScript.",
         image: "https://bbauti.ar/og-image.png",
         imageAlt: "Bautista Igarzabal Portfolio",
       }}
@@ -151,7 +149,7 @@ import SchemaOrg from "../components/SchemaOrg.astro";
           { name: "robots", content: "index, follow" },
           { name: "googlebot", content: "index, follow" },
           { name: "theme-color", content: "#ffffff" },
-          { name: "keywords", content: "desarrollador frontend, vue developer, nuxt developer, typescript, portfolio, web developer, argentina, bautista igarzabal" },
+          { name: "keywords", content: "frontend engineer, vue developer, nuxt developer, typescript, remote, argentina, bautista igarzabal" },
           { name: "geo.region", content: "AR" },
           { name: "geo.placename", content: "Argentina" },
           { property: "article:author", content: "Bautista Igarzabal" },
@@ -162,36 +160,34 @@ import SchemaOrg from "../components/SchemaOrg.astro";
     <meta name="generator" content={Astro.generator} />
     <SchemaOrg
       name="Bautista Igarzabal"
-      jobTitle="Desarrollador Frontend"
-      description="Desarrollador web frontend con mas de 5 años de experiencia especializado en Vue, Nuxt y TypeScript."
+      jobTitle="Frontend Engineer"
+      description="Frontend engineer specialized in Vue, Nuxt and TypeScript."
       url="https://bbauti.ar"
       image="https://avatars.githubusercontent.com/u/68351913"
       email="bautistaigarzabal11@gmail.com"
       sameAs={[
         "https://www.linkedin.com/in/bbauti",
-        "https://github.com/bbauti",
-        "https://x.com/akabbauti",
-        "https://www.behance.net/bbauti"
+        "https://github.com/bbauti"
       ]}
       projects={[
         {
           name: "Iberojet",
-          description: "Plataforma de viajes con Vue 3 y Nuxt 3",
+          description: "Airline flight-booking website built with Vue 3 and Nuxt 3",
           url: "https://iberojet.com/",
           image: "https://bbauti.ar/projects/iberojet.webp",
           technologies: ["Vue", "Nuxt", "TypeScript"]
         },
         {
           name: "PlanB",
-          description: "Plataforma de reserva de experiencias",
+          description: "Experiences booking platform and back-office",
           url: "https://planb.es/",
           image: "https://bbauti.ar/projects/planb.webp",
           technologies: ["Vue", "Nuxt", "TypeScript"]
         },
         {
           name: "Punto Bazar",
-          description: "Aplicacion de gestion de inventario",
-          url: "https://dash.bbauti.ar/",
+          description: "Inventory and sales dashboard",
+          url: "https://github.com/bbauti/dashboard",
           image: "https://bbauti.ar/projects/dashboard.webp",
           technologies: ["Svelte", "JavaScript", "Vite"]
         }

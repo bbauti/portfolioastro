@@ -23,13 +23,13 @@
   <circle cx="1050" cy="530" r="250" fill="url(#accentGradient)" filter="blur(80px)"/>
 
   <!-- Main content -->
-  <text x="600" y="240" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#ffffff" opacity="0.7">Hola! Soy</text>
+  <text x="600" y="240" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" fill="#ffffff" opacity="0.7">Hi! I’m</text>
 
   <!-- Name with stroke effect -->
   <text x="600" y="320" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="bold" fill="none" stroke="#ededed" stroke-width="2" transform="skewX(-2)">Bautista Igarzabal</text>
 
   <!-- Role with gradient -->
-  <text x="600" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="36" fill="url(#textGradient)" font-weight="600">Desarrollador Frontend</text>
+  <text x="600" y="400" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="36" fill="url(#textGradient)" font-weight="600">Frontend Engineer</text>
 
   <!-- Tech stack -->
   <text x="600" y="480" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" fill="#ffffff" opacity="0.5">Vue | Nuxt | TypeScript | Node.js</text>

@@ -16,8 +16,8 @@ const typedColores = colores as Colores;
 const projects = [
   {
     name: ["Iberojet"],
-    desc: "Lideré la reconstrucción del frontend de la plataforma de viajes de Iberojet utilizando Vue 3 y Nuxt 3 con TypeScript. El proyecto incluyó un panel de control de operaciones de vuelo en tiempo real, un CMS multilingüe y características complejas como selectores de asientos y procesamiento de pagos. Optimicé el rendimiento e implementé una arquitectura multidominio que atiende a varios mercados internacionales, demostrando mi capacidad para entregar soluciones frontend complejas a gran escala.",
-    year: "2024 - Actualidad",
+    desc: "Primary frontend engineer of Iberojet's flight-booking website (Ávoris Travel). I bootstrapped its Nuxt 3 + TypeScript codebase in 2024 and built the booking funnel, the interactive seat map, online check-in and manage-my-booking, serving several country sites in three languages. I also own SSR performance and production observability.",
+    year: "2024 - Present",
     source: "",
     img: "/src/assets/projects/iberojet.webp",
     link: "https://iberojet.com/",
@@ -27,8 +27,8 @@ const projects = [
   },
   {
     name: ["Planb"],
-    desc: "Lideré el desarrollo del frontend de PlanB, plataforma de reserva de experiencias y estancias, utilizando Vue 3 y Nuxt 3 con TypeScript. El proyecto incluyó un CMS multilingüe, un sistema de reservas adaptativo con calendario interactivo y personalización de paquetes. Optimicé la carga inicial mediante lazy loading y pre‑renderizado, demostrando mi capacidad para entregar interfaces frontend avanzadas y de alto rendimiento.",
-    year: "2024 - Actualidad",
+    desc: "Built the public booking site (Nuxt 3) and the back-office (Vue 3) of PlanB, Ávoris' experiences and gift-box platform: availability calendar, role-based access with SSO, SAP integration, and stock and order management.",
+    year: "2024 - 2025",
     source: "",
     img: "/src/assets/projects/planb.webp",
     link: "https://planb.es/",
@@ -38,34 +38,16 @@ const projects = [
   },
   {
     name: ["Punto Bazar"],
-    desc: "Aplicación de gestión de inventario para la diplomatura de programación de la UTN. La aplicación permite gestionar stock, crear productos, manejar un carrito de compras con cálculos de precios, impuestos y envíos, analizar transacciones, gestionar impuestos, y administrar múltiples cuentas. Cuenta con notificaciones de bajo stock y es de código abierto.",
+    desc: "Inventory and sales dashboard built for my UTN programming diploma: stock and products, a cart with price, tax and shipping calculations, transaction analytics, low-stock alerts and multiple accounts. Open source.",
     year: "2023",
     source: "https://github.com/bbauti/dashboard",
     img: "/src/assets/projects/dashboard.webp",
-    link: "https://dash.bbauti.ar/",
+    link: "",
     status: "done",
     languagesColor: ["HTML", "CSS", "SCSS", "JavaScript", "Svelte", "Vite"],
     languages: ["HTML", "CSS", "SCSS", "JS", "Svelte", "Vite"],
   },
-  {
-    name: ["Inventory App", "1rem"],
-    desc: "Aplicación web para el control del inventario de una institución escolar. Fui responsable del frontend, la documentación y las tareas de DevOps. La aplicación, implementada en un servidor propio con CI/CD para actualizaciones automáticas, permitía a los maestros controlar el inventario escolar y localizar objetos en diferentes salones. Todo se creó desde cero, incluyendo correos y autenticación. Se uso la metodologia SCRUM.",
-    year: "2022",
-    source: "https://bitbucket.org/arrudeboy/inventory/src",
-    img: "/src/assets/projects/inventoryapp.webp",
-    link: "",
-    status: "wip",
-    languagesColor: [
-      "Python",
-      "Python",
-      "Jinja2",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "SQL",
-    ],
-    languages: ["PY", "Flask", "Jinja2", "JS", "HTML", "CSS", "SQL"],
-  } /*
+  /*
   {
     name: ["Todo App"],
     desc: "Pagina web para gestionar tareas con el uso de localStorage.",
@@ -95,21 +77,45 @@ const projects = [
     status: "done",
     languagesColor: ["HTML", "CSSimagePath", "JavaScript"],
     languages: ["HTML", "CSS", "JS"],
-  }, */,
+  }, */
 ];
 
 const sideProjects = [
   {
     name: ["Impostor"],
-    desc: "Juego multijugador de deducción social en tiempo real",
-    icon: "https://fetchfavicon.com/i/impostor.bbauti.ar",
+    desc: "Real-time multiplayer social-deduction game (Nuxt 4, WebSockets, Supabase)",
+    icon: "https://impostor.bbauti.ar/favicon.svg",
     source: "https://github.com/bbauti/impostor",
-    link: "https://impostor.bauti.ar/",
+    link: "https://impostor.bbauti.ar/",
+    status: "done",
+  },
+  {
+    name: ["warframe-mcp"],
+    desc: "MCP server on npm that gives LLM clients typed tools over game data",
+    icon: "",
+    source: "https://github.com/bbauti/warframe-mcp",
+    link: "https://www.npmjs.com/package/@bbauti/warframe-mcp",
+    status: "done",
+  },
+  {
+    name: ["Gym Tracker"],
+    desc: "Offline-first workout tracker for iOS and Android (Expo, SQLite)",
+    icon: "",
+    source: "https://github.com/bbauti/gym-tracker",
+    link: "",
+    status: "done",
+  },
+  {
+    name: ["modtracker"],
+    desc: "Tracks Modrinth projects and modpacks with live WebSocket updates (Nuxt 3)",
+    icon: "",
+    source: "https://github.com/bbauti/modtracker",
+    link: "",
     status: "done",
   },
   {
     name: ["AtlassianBot"],
-    desc: "CLI para generar reportes diarios de Bitbucket y Jira",
+    desc: "CLI that turns Bitbucket and Jira activity into daily reports with LLMs",
     icon: "",
     source: "https://github.com/bbauti/atlassian-bot",
     link: "",
@@ -117,7 +123,7 @@ const sideProjects = [
   },
   {
     name: ["QPC-Tui"],
-    desc: "Lector de noticias de Que Pensas Chacabuco desde una interfaz de terminal",
+    desc: "Terminal UI news reader for a local news site, served over SSH (Go)",
     icon: "",
     source: "https://github.com/bbauti/qpc-tui",
     link: "",
@@ -136,7 +142,7 @@ const checkColor = (lang: keyof Colores): string => {
     id="projects-heading"
     class="relative mx-auto mb-4 w-fit text-lg font-semibold md:text-xl"
   >
-    Proyectos destacados
+    Featured work
   </h2>
   <div id="cards" class="flex w-full flex-col items-center gap-4" role="list">
     {
@@ -155,7 +161,7 @@ const checkColor = (lang: keyof Colores): string => {
                       <a
                         href={project.source}
                         class="git"
-                        aria-label={`Ver codigo fuente de ${project.name[0]}`}
+                        aria-label={`View source code of ${project.name[0]}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -163,11 +169,11 @@ const checkColor = (lang: keyof Colores): string => {
                       </a>
                     </div>
                   )}
-                  {project.status === "done" && (
+                  {project.status === "done" && project.link && (
                     <div class="icon-card icon-card-text hover:color-[#AFAFAF] dark:hover:color-[#4A4A4A] rounded-md bg-[#AFAFAF]/10 p-1 transition-all ease-in-out hover:-translate-y-[1px] dark:bg-[#4A4A4A]/10">
                       <a
                         href={project.link}
-                        aria-label={`Visitar ${project.name[0]}`}
+                        aria-label={`Visit ${project.name[0]}`}
                         class="done"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -180,7 +186,7 @@ const checkColor = (lang: keyof Colores): string => {
                     <div
                       class="icon-card disabled rounded-md bg-[#AFAFAF]/10 p-1 dark:bg-[#4A4A4A]/10"
                       role="img"
-                      aria-label="Proyecto en desarrollo"
+                      aria-label="Work in progress"
                     >
                       <Icon name="mdi:construction" aria-hidden="true" />
                     </div>
@@ -193,7 +199,7 @@ const checkColor = (lang: keyof Colores): string => {
               <div
                 class="flex flex-wrap gap-1 select-none"
                 role="list"
-                aria-label="Tecnologias usadas"
+                aria-label="Technologies used"
               >
                 {project.languages.map((lang, index) => (
                   <div
@@ -224,7 +230,7 @@ const checkColor = (lang: keyof Colores): string => {
             <figure class="my-auto h-fit w-fit">
               <Image
                 src={images[project.img]()}
-                alt={`Captura de pantalla del proyecto ${project.name[0]}`}
+                alt={`Screenshot of ${project.name[0]}`}
                 class="relative z-50 ml-auto max-h-full rounded-[25px] border border-gray-300 p-[0.1rem] dark:border-gray-600"
                 width={500}
                 height={375}
@@ -266,7 +272,7 @@ const checkColor = (lang: keyof Colores): string => {
                   <a
                     href={project.source}
                     class="git"
-                    aria-label={`Ver codigo fuente de ${project.name[0]}`}
+                    aria-label={`View source code of ${project.name[0]}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -278,7 +284,7 @@ const checkColor = (lang: keyof Colores): string => {
                 <div class="icon-card icon-card-text hover:color-[#AFAFAF] dark:hover:color-[#4A4A4A] rounded-md bg-[#AFAFAF]/10 p-1 transition-all ease-in-out hover:-translate-y-[1px] dark:bg-[#4A4A4A]/10">
                   <a
                     href={project.link}
-                    aria-label={`Visitar ${project.name[0]}`}
+                    aria-label={`Visit ${project.name[0]}`}
                     class="done"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -291,7 +297,7 @@ const checkColor = (lang: keyof Colores): string => {
                 <div
                   class="icon-card disabled rounded-md bg-[#AFAFAF]/10 p-1 dark:bg-[#4A4A4A]/10"
                   role="img"
-                  aria-label="Proyecto en desarrollo"
+                  aria-label="Work in progress"
                 >
                   <Icon name="mdi:construction" aria-hidden="true" />
                 </div>

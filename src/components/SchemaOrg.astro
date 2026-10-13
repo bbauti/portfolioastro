@@ -67,7 +67,7 @@ const websiteSchema = {
   author: {
     "@id": `${url}#person`,
   },
-  inLanguage: "es-AR",
+  inLanguage: "en",
 };
 
 // WebPage Schema
@@ -76,7 +76,7 @@ const webPageSchema = {
   "@type": "WebPage",
   "@id": `${url}#webpage`,
   url: url,
-  name: `${name} | Desarrollador Frontend`,
+  name: `${name} | Frontend Engineer`,
   description: description,
   isPartOf: {
     "@id": `${url}#website`,
@@ -84,7 +84,7 @@ const webPageSchema = {
   about: {
     "@id": `${url}#person`,
   },
-  inLanguage: "es-AR",
+  inLanguage: "en",
   datePublished: "2024-01-01",
   dateModified: new Date().toISOString().split("T")[0],
 };
@@ -94,7 +94,7 @@ const serviceSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": `${url}#service`,
-  name: `${name} - Desarrollo Frontend`,
+  name: `${name} - Frontend Engineering`,
   provider: {
     "@id": `${url}#person`,
   },
@@ -103,7 +103,7 @@ const serviceSchema = {
     "@type": "Place",
     name: "Worldwide",
   },
-  description: "Desarrollo frontend profesional con Vue, Nuxt y TypeScript",
+  description: "Frontend engineering with Vue, Nuxt and TypeScript",
 };
 
 // Projects as CreativeWork items
